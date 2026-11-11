@@ -1,7 +1,7 @@
 <!doctype html><html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#000000"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><title>Tennis SillaCoach</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#000;color:white;font:16px system-ui}main{max-width:520px;margin:auto;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}header{display:flex;gap:12px;align-items:center;border-bottom:1px solid #444;padding-bottom:12px}header img{width:44px}h1,h2,p{margin:0 0 12px}header h1{margin:0;font-size:1.35rem}h2{margin-top:18px}button,input,select{font:inherit;color:inherit;background:#171717;border:1px solid #777;border-radius:10px;padding:10px;min-height:48px}button{font-weight:750;cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #edff00;outline-offset:2px}.primary{background:#edff00;color:black;border:0;width:100%;min-height:64px;margin-top:10px}.row,.clocks{display:flex;gap:8px;align-items:center;justify-content:space-between}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.clocks{position:sticky;top:0;background:#000;z-index:1;padding:8px 0}.clocks div{flex:1}.clocks strong{display:block;font-size:1.9rem;font-variant-numeric:tabular-nums}.card{border:1px solid #666;border-radius:12px;padding:12px;margin:8px 0}.score{text-align:center}.score strong{display:block;font-size:3rem}.score button{flex:1;font-size:1.3rem}fieldset{border:1px solid #666;border-radius:10px;margin:12px 0}label{display:block;margin:8px 0}label input[type=number],label select{display:block;width:100%;margin-top:4px}input[type=checkbox]{min-height:0;width:20px;height:20px;vertical-align:middle}.wide{width:100%;margin-top:8px}.muted{color:#c6c6c6}.orb{background:#edff00;width:96px;height:96px;border-radius:50%;margin:24px auto;animation:breathe 5s infinite}@keyframes breathe{0%,100%{transform:scale(.7)}40%{transform:scale(1)}}@media(prefers-reduced-motion:reduce){.orb{display:none;animation:none}}#breath{text-align:center}li{margin-bottom:8px}[hidden]{display:none!important}
-.nav{margin:12px 0}.nav button{flex:1}.nav [aria-pressed=true]{background:#edff00;color:#000}.score button{width:100%;min-height:64px}.history-entry{text-align:left}.sets{overflow-wrap:anywhere}button,summary{min-width:48px;min-height:48px}summary{display:list-item;padding:12px 0;cursor:pointer}fieldset{min-width:0}select{max-width:100%}.profile{overflow-wrap:anywhere}.grid>*{min-width:0}.feel-tabs button{flex:1}.feel-tabs [aria-pressed=true],.level[aria-pressed=true]{outline:2px solid white;outline-offset:2px}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.level{font-size:.83rem;padding:6px}.level[aria-pressed=true]{background:#ffd84b;color:black}.level.good[aria-pressed=true]{background:#86df99}.level.high[aria-pressed=true]{background:#ff8585}.edit-field{width:100%;display:block}.history-actions button{flex:1}label textarea{font:inherit;background:#171717;color:white;min-height:90px}#feelAlert:empty{display:none}.history-scroll{overflow-x:auto;margin:8px 0}.history-table{width:100%;border-collapse:collapse;text-align:left}.history-table th,.history-table td{padding:6px;border-bottom:1px solid #555}.history-table th{color:#edff00}.history-table td:nth-child(2),.history-table td:nth-child(6){white-space:nowrap}.history-table .row{justify-content:flex-start}.history-table button{white-space:nowrap;padding:6px}.history-table td:nth-child(3){overflow-wrap:anywhere;min-width:65px}@media(orientation:landscape){main:has(#historyScreen:not([hidden])){max-width:1050px}.history-table{font-size:.88rem}}</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button></nav>
+.nav{margin:12px 0}.nav button{flex:1}.nav [aria-pressed=true]{background:#edff00;color:#000}.score button{width:100%;min-height:64px}.history-entry{text-align:left}.sets{overflow-wrap:anywhere}button,summary{min-width:48px;min-height:48px}summary{display:list-item;padding:12px 0;cursor:pointer}fieldset{min-width:0}select{max-width:100%}.profile{overflow-wrap:anywhere}.grid>*{min-width:0}.feel-tabs button{flex:1}.feel-tabs [aria-pressed=true],.level[aria-pressed=true]{outline:2px solid white;outline-offset:2px}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.level{font-size:.83rem;padding:6px}.level[aria-pressed=true]{background:#ffd84b;color:black}.level.good[aria-pressed=true]{background:#86df99}.level.high[aria-pressed=true]{background:#ff8585}.edit-field{width:100%;display:block}.history-actions button{flex:1}label textarea{font:inherit;background:#171717;color:white;min-height:90px}#feelAlert:empty{display:none}.history-scroll{overflow-x:auto;margin:8px 0}.history-table{width:100%;border-collapse:collapse;text-align:left}.history-table th,.history-table td{padding:6px;border-bottom:1px solid #555}.history-table th{color:#edff00}.history-table td:nth-child(2),.history-table td:nth-child(6){white-space:nowrap}.history-table .row{justify-content:flex-start}.history-table button{white-space:nowrap;padding:6px}.history-table td:nth-child(3){overflow-wrap:anywhere;min-width:65px}@media(orientation:landscape){main:has(#historyScreen:not([hidden])){max-width:1050px}.history-table{font-size:.88rem}}.feeling-panel{padding:8px;border-radius:12px}.feeling-panel[data-group="0"]{background:#197048}.feeling-panel[data-group="1"]{background:#932d49}.feeling-panel[data-group="2"]{background:#245d9b}.feeling-panel fieldset{background:var(--tone);color:#101820}.feeling-panel legend{background:var(--tone);padding:2px 6px;border-radius:5px}.feeling-panel button{margin-top:4px}.feeling-panel .wide{margin-top:8px}.feeling-state{font-weight:bold;margin-top:8px}#restStatus{font-weight:bold}#mainTip,#otherTip{white-space:pre-line}</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button></nav>
 <button id="install" class="wide" hidden>Instalar en Android</button><p id="notice" role="status"></p>
 <div id="clocks" class="clocks" hidden><div>PARTIDO<strong id="matchClock"></strong></div><div>DESCANSO<strong id="restClock"></strong></div></div>
 <section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><fieldset><legend>Datos del rival</legend>
@@ -12,9 +12,9 @@
 <label>Mi edad<input name="age" type="number" min="1" max="120" step="1" inputmode="numeric"></label>
 <label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option>Ranking</option></select></label>
 <label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><div id="history"></div></section>
-<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
+<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
-<section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button">Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="advice" hidden><h2 id="adviceHorizon">Próximos dos games</h2><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><p id="mainTip"></p><h3>Recibiendo</h3><p id="otherTip"></p></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><label>Puntaje obtenido por mí<input name="earned" type="number" min="0" max="9007199254740991" step="1" inputmode="numeric" required value="0"></label><details><summary>Sensaciones al finalizar</summary><div id="closingFeelings"></div></details><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="historyEdit" hidden><h2>Editar partido</h2><form id="historyForm"><div id="historyFields"></div><p id="editError" role="alert"></p><button class="primary">GUARDAR EDICIÓN</button></form><button class="wide" id="cancelEdit">CANCELAR</button></section><section id="report" hidden><h2>Informe del partido</h2><div id="reportBody"></div><button class="primary" id="newMatch">VOLVER AL INICIO</button></section>
@@ -53,6 +53,7 @@ function tick(now = Date.now()) {
   if (!match) return;
   get('matchClock').textContent = clock(elapsed(match,now),true);
   const remaining = match.restEnd === null ? 90000 : match.restEnd-now;
+  updateRestAlert(match,now);
   get('restClock').textContent = clock(remaining);
   get('rest').textContent = match.restEnd !== null && remaining > 0 ? 'REINICIAR DESCANSO' : 'INICIAR DESCANSO';
   if (!get('breath').hidden) {
@@ -125,7 +126,10 @@ function openMarker() {
   if (active().legacyManual) get('notice').textContent='El marcador manual anterior tiene un resultado fuera del formato automático. Puedes guardarlo como inconcluso.';
 }
 get('rest').onclick = () => {
-  Object.assign(active(),{restEnd:Date.now()+90000,offered:false,breathEnd:null});
+  prepareRestSound();
+  const now=Date.now();
+  Object.assign(active(),{restEnd:now+90000,offered:false,breathEnd:null});
+  lastRestTick=now;
   save(); tick();
 };
 function critical({me,rival,tie,points,super:isSuper}) {
@@ -134,7 +138,11 @@ function critical({me,rival,tie,points,super:isSuper}) {
 function openFeel() {
   active().breathEnd = null;
   get('feelForm').reset();
-  renderFeelings('feelingControls','feelAlert');
+  const match=active();
+  const key=[match.set,score().me,score().rival,score().points?.me,score().points?.rival,match.restEnd].join('/');
+  if(match.feelingDraft?.key!==key)match.feelingDraft={key,levels:{},moments:{}};
+  renderFeelings('feelingControls','feelAlert',match.feelingDraft.levels);
+
   get('optional').open = false;
   get('sideLabel').hidden = true;
   save(); show('feel');
@@ -201,16 +209,21 @@ function tactical(match, observation, ms) {
 get('feelForm').onsubmit = event => {
   event.preventDefault();
   const match = active();
+  if (!feelings.every(([,id])=>Object.hasOwn(match.feelingDraft?.levels??{},id))) return;
   const ms = elapsed(match);
   const fields = Object.fromEntries(new FormData(event.currentTarget));
   const observation = {...fields,unit:score().points||score().super?'puntos':'games',minute:Math.floor(ms/60000),set:match.set+1,score:[(score().points??score()).me,(score().points??score()).rival],scoreLabel:SillaScore.label(score())};
   observation.levels = readFeelings(fields);
+  observation.feelingMoments=match.feelingDraft.moments;
   observation.fatigue = ['', 'Baja','Media','Alta'][observation.levels.fatigue||0];
   observation.confidence = ['', 'Baja','Media','Alta'][observation.levels.confidence||0];
   const tacticalReading={...observation,fatigue:observation.levels.fatigue===3?'Alta':observation.levels.fatigue?'Baja':''};
   const [general] = tactical(match,tacticalReading,ms);
   const pattern=observation.rivalPattern || [...match.observations].reverse().find(item=>item.rivalPattern)?.rivalPattern || '';
-  const {serving:tip,receiving:alternative} = directions(match,{...observation,rivalPattern:pattern},ms,general);
+  const {serving:tip,receiving:alternative} = pointPlans(match,{...observation,rivalPattern:pattern,
+    rivalServing:observation.rivalServing || [...match.observations].reverse().find(item=>item.rivalServing)?.rivalServing,
+    rivalReturning:observation.rivalReturning || [...match.observations].reverse().find(item=>item.rivalReturning)?.rivalReturning
+  },ms,general);
   const previous = [...match.observations].reverse().find(item=>item.quality);
   const source = observation.quality ? observation : previous;
   const basis = observation.fatigue && observation.fatigue!=='Baja' ? 'Fatiga '+observation.fatigue.toLowerCase() : source ? source.who+' · '+source.shot+' · '+source.quality : 'Marcador, sensaciones y objetivos disponibles';
@@ -221,6 +234,7 @@ get('feelForm').onsubmit = event => {
   save();
   get('mainTip').textContent = tip;
   get('otherTip').textContent = alternative;
+  delete match.feelingDraft;save();
   show('advice');
 };
 get('finish').onclick = () => {
@@ -303,6 +317,11 @@ function report(match) {
   }
   if (!observations.length) context.push('Sin observaciones durante el partido.');
   section('Diagnóstico por tramos',context);
+  if(match.recommendations?.length) section('Consignas del partido',match.recommendations.flatMap(item=>[
+    'Min '+item.minute+' · Set '+item.set+' · '+item.basis,
+    'Sirviendo · '+item.tip,
+    'Recibiendo · '+item.alternative
+  ]));
   section('Objetivos',match.assessment?.length ? match.assessment.map(([goal,value])=>goal+' — '+value+' (autoevaluación)') : ['Sin objetivos seleccionados.']);
   const priorities = [...new Set(observations.filter(item=>item.who==='Yo' && negative(item.quality)).reverse().map(item=>item.shot))].slice(0,3);
   const training = priorities.length ? priorities : ['Saque','Revés'];
@@ -318,35 +337,63 @@ function readFeelings(fields) {
   return Object.fromEntries(feelings.map(([,id])=>[id,Number(fields['level_'+id])]).filter(([,n])=>[1,2,3].includes(n)));
 }
 function renderFeelings(id,alertId,initial={}) {
-  const root=get(id);root.replaceChildren();
-  const chosen={...initial};
-  const tabs=document.createElement('div');tabs.className='row feel-tabs';root.append(tabs);
-  const panels=[];
-  for(const group of ['Físico','Mental','Técnico']) {
-    const tab=document.createElement('button');tab.type='button';tab.textContent=group;tabs.append(tab);
-    const panel=document.createElement('div');root.append(panel);panels.push({tab,panel});
-    tab.onclick=()=>{for(const item of panels){item.panel.hidden=item.tab!==tab;item.tab.setAttribute('aria-pressed',String(item.tab===tab));}};
-    for(const [,key,title,...labels] of feelings.filter(item=>item[0]===group)) {
-      const card=document.createElement('fieldset');card.className='card';
-      const legend=document.createElement('legend');legend.textContent=title;card.append(legend);
-      const input=document.createElement('input');input.type='hidden';input.name='level_'+key;input.value=chosen[key]||'';card.append(input);
-      const row=document.createElement('div');row.className='levels';card.append(row);
-      const buttons=labels.map((label,index)=>{
-        const n=index+1;const button=document.createElement('button');button.type='button';button.className='level '+(n===2||(key==='fatigue'&&n===1)?'good':n===3?'high':'');
-        button.textContent=n+' · '+label;button.setAttribute('aria-label',title+' '+n+' '+label);
-        button.setAttribute('aria-pressed',String(chosen[key]===n));row.append(button);
-        button.onclick=()=>{
-          chosen[key]=chosen[key]===n?0:n;input.value=chosen[key]||'';
-          buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(chosen[key]===i+1)));
-          if(alertId) get(alertId).textContent=extremes(chosen).length<2?'':chosen.tension===3&&chosen.stroke===1?'Afloja el agarre y exhala al golpear. Busca altura y una zona amplia.':'Elige una zona amplia y reduce el riesgo en el próximo punto.';
-        };
-        return button;
-      });
-      panel.append(card);
-    }
+ const root=get(id),quick=id==='feelingControls';
+ let pending=null;
+ const chosen={...initial};
+ const palette=[['#dcf7e4','#bce8c8','#8bcea2'],['#ffe3e7','#fbc9d3','#f3aabb','#eb92a7'],['#e1f1ff','#a9d2fa']];
+ const tabs=document.createElement('div');tabs.className='row feel-tabs';
+ const progress=document.createElement('p');progress.setAttribute('role','status');
+ const panels=[],cards=[];
+ root.replaceChildren(tabs,progress);
+ function refresh(){
+  progress.textContent=Object.keys(chosen).length+' de 9 resueltas';
+  for(const card of cards){
+   card.state.textContent=pending?.key===card.key?'Pendiente · vuelve a tocar para guardar':chosen[card.key]===0?'Sin registrar':chosen[card.key]?'Guardada':'';
+   for(const [i,button] of card.buttons.entries())button.setAttribute('aria-pressed',String((pending?.key===card.key?pending.n:chosen[card.key])===i+1));
+   card.input.value=chosen[card.key]||'';
   }
-  panels[0].tab.onclick();
-  if(alertId)get(alertId).textContent='';
+  if(quick)get('feelForm').querySelector('button.primary').disabled=Object.keys(chosen).length!==feelings.length||!!pending;
+  if(alertId)get(alertId).textContent=extremes(chosen).length>=2?(chosen.tension===3&&chosen.stroke===1?'Afloja el agarre y exhala al golpear. Busca altura y una zona amplia.':'Elige una zona amplia y reduce el riesgo en el próximo punto.'):'';
+ }
+ function commit(entries){
+  if(quick){
+   const match=active(),draft=match.feelingDraft;
+   const previous={...draft.levels},moments={...draft.moments};
+   for(const [key,n] of entries){
+    draft.levels[key]=n;
+    draft.moments[key]={minute:Math.floor(elapsed(match)/60000),set:match.set+1,score:SillaScore.label(score())};
+   }
+   if(!save()){draft.levels=previous;draft.moments=moments;return false;}
+  }
+  Object.assign(chosen,Object.fromEntries(entries));pending=null;refresh();return true;
+ }
+ for(const [i,group] of ['Físico','Mental','Técnico'].entries()){
+  const tab=document.createElement('button');tab.type='button';tab.textContent=group;tabs.append(tab);
+  const panel=document.createElement('div');panel.className='feeling-panel';panel.dataset.group=i;root.append(panel);panels.push({tab,panel});
+  tab.onclick=()=>{for(const item of panels){item.panel.hidden=item.tab!==tab;item.tab.setAttribute('aria-pressed',String(item.tab===tab));}};
+  for(const [j,[,key,title,...labels]] of feelings.filter(item=>item[0]===group).entries()){
+   const field=document.createElement('fieldset');field.className='card';field.style.setProperty('--tone',palette[i][j]);
+   const legend=document.createElement('legend');legend.textContent=title;
+   const input=document.createElement('input');input.type='hidden';input.name='level_'+key;
+   const row=document.createElement('div');row.className='levels';
+   const state=document.createElement('p');state.className='feeling-state';
+   const skip=document.createElement('button');skip.type='button';skip.textContent='Sin registrar';
+   const advance=()=>{const next=cards.find(card=>!Object.hasOwn(chosen,card.key));if(next){panels[next.group].tab.onclick();next.field.scrollIntoView({block:'nearest'});}};
+   const buttons=labels.map((label,index)=>{
+    const n=index+1,button=document.createElement('button');button.type='button';button.className='level';
+    button.textContent=n+' · '+label;button.setAttribute('aria-label',title+' '+n+' '+label);
+    button.onclick=()=>{if(pending?.key===key&&pending.n===n){if(commit([[key,n]]))advance();}else{pending={key,n};refresh();}};
+    row.append(button);return button;
+   });
+   skip.onclick=()=>{if(commit([[key,0]]))advance();};
+   field.append(legend,input,row,state,skip);panel.append(field);cards.push({key,input,state,buttons,group:i,field});
+  }
+ }
+ if(quick)get('omitFeelings').onclick=()=>{
+  if(pending&&!window.confirm('¿Descartar la selección pendiente y omitir las sensaciones restantes?'))return;
+  commit(feelings.filter(([,key])=>!Object.hasOwn(chosen,key)).map(([,key])=>[key,0]));
+ };
+ panels[0].tab.onclick();refresh();
 }
 function readingLabel(name,value) {
  const select=get('feelForm').elements[name];
@@ -395,74 +442,71 @@ function openHistory() {
   wrapper.append(table);history.append(wrapper);show('historyScreen');
 }
 function openEdit(match) {
-  const root=get('historyFields');root.replaceChildren();
-  get('editError').textContent='';
-  const date=new Date(match.start);const local=new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,16);
-  const originalScore=SillaScore.played(match).map(set=>set.me+'/'+set.rival+(set.points?' ('+set.points.me+'/'+set.points.rival+')':'')).join(' - ');
-  const fields=[
-    ['date','Fecha y hora','datetime-local',local],['rivalName','Nombre del rival','text',match.rivalName],
-    ['hand','Lateralidad',['Desconocida','Diestro','Zurdo'],match.hand],
-    ['rivalAge','Edad del rival','number',match.rivalAge],['age','Mi edad','number',match.age],
-    ['category','Categoría',['Sin informar','1','2','3','4','5'],match.category],
-    ['kind','Tipo',['Sin informar','Amistoso','Liga','Ranking'],match.kind],
-    ['earned','Puntaje propio','number',match.earned],
-    ['format','Formato del tercero',['Sin informar','Set normal','Súper tie-break'],match.format==='super'?'Súper tie-break':match.format==='normal'?'Set normal':'Sin informar'],
-    ['score','Marcador Yo/Rival (desempate entre paréntesis)','text',originalScore],
-    ['state','Estado',['Terminado','Inconcluso'],match.result==='Inconcluso'?'Inconcluso':'Terminado'],
-    ['duration','Duración en segundos','number',Math.floor(elapsed(match)/1000)]
-  ];
-  for(const [name,title,type,value] of fields) {
-    const label=document.createElement('label');label.textContent=title;
-    const input=document.createElement(Array.isArray(type)?'select':'input');
-    input.name=name;input.className='edit-field';
-    if(Array.isArray(type)) for(const option of type) input.add(new Option(option));
-    else input.type=type;
-    if(value!=null)input.value=value;
-    if(type==='number'){input.step='1';input.min=name.endsWith('Age')||name==='age'?1:0;if(name.endsWith('Age')||name==='age')input.max=120;}
-    if(name==='date'||name==='duration')input.required=true;
-    label.append(input);root.append(label);
-  }
-  const observations=match.observations??[];
-  for(const [i,item] of observations.entries()){
-    const details=document.createElement('details');const summary=document.createElement('summary');
-    summary.textContent='Observación '+(i+1)+' · minuto '+item.minute;details.append(summary);
-    const label=document.createElement('label');label.textContent='Nota';
-    const input=document.createElement('textarea');input.name='note_'+i;input.className='edit-field';input.value=item.note||'';label.append(input);details.append(label);
-    const box=document.createElement('div');box.id='editFeel'+i;details.append(box);root.append(details);
-    renderFeelings(box.id,null,item.levels??{});
-    const pattern=get('feelForm').elements.rivalPattern.cloneNode(true);
-    pattern.name='pattern_'+i;pattern.value=item.rivalPattern||'';
-    const patternLabel=document.createElement('label');patternLabel.textContent='Patrón de juego en cancha';patternLabel.append(pattern);details.append(patternLabel);
-    for(const control of box.querySelectorAll('input')) control.name='edit_'+i+'_'+control.name;
-  }
-  show('historyEdit');
-  get('historyForm').onsubmit=event=>{
-    event.preventDefault();
-    const form=Object.fromEntries(new FormData(event.currentTarget));
-    try{
-      const start=form.date===local?match.start:new Date(form.date).getTime();
-      const duration=Number(form.duration);
-      const earned=form.earned===''?null:Number(form.earned);
-      const end=start+duration*1000+(form.duration===String(Math.floor(elapsed(match)/1000))?elapsed(match)%1000:0);
-      if(!Number.isSafeInteger(end)||!Number.isSafeInteger(duration)||duration<0||(earned!==null&&(!Number.isSafeInteger(earned)||earned<0)))throw Error('Revisa fecha, duración y puntaje.');
-      const format=form.format==='Súper tie-break'?'super':form.format==='Set normal'?'normal':null;
-      const unfinished=form.state==='Inconcluso';
-      const scoreEdited=form.score.trim()!==originalScore||format!==match.format||unfinished!==(match.result==='Inconcluso');
-      const sets=scoreEdited?parseSets(form.score,format,unfinished):match.sets;
-      const result=scoreEdited?(unfinished?'Inconcluso':sets.filter(set=>SillaScore.winner(set)==='me').length===2?'Ganado':'Perdido'):match.result;
-      const updated={...match,start,end,earned,format,sets,result,rivalName:form.rivalName.trim(),rivalAge:Number(form.rivalAge)||null,age:Number(form.age)||null,hand:form.hand,category:form.category,kind:form.kind,observations:observations.map((item,i)=>{
-        const levels=readFeelings(Object.fromEntries(Object.entries(form).filter(([k])=>k.startsWith('edit_'+i+'_')).map(([k,v])=>[k.slice(('edit_'+i+'_').length),v])));
-        return {...item,rivalPattern:form['pattern_'+i],note:form['note_'+i].trim(),levels:Object.keys(levels).length||item.levels?levels:undefined};
-      })};
-      if(writeHistory(data.history.map(item=>item.number===match.number?updated:item)))openHistory();
-    }catch(error){get('editError').textContent=error.message;}
-  };
+ const root=get('historyFields');root.replaceChildren();get('editError').textContent='';
+ const date=new Date(match.start);
+ const local=new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,10);
+ const original=formatSets(match)==='Sin marcador'?'':formatSets(match);
+ const fields=[['date','Fecha','date',local],['rivalName','Rival','text',match.rivalName],['kind','Tipo de partido',['Sin informar','Amistoso','Liga','Ranking'],match.kind],['earned','Puntaje propio','number',match.earned],['score','Marcador Yo/Rival','text',original]];
+ for(const [name,title,type,value] of fields){
+  const label=document.createElement('label');label.textContent=title;
+  const input=document.createElement(Array.isArray(type)?'select':'input');
+  input.name=name;input.className='edit-field';
+  if(Array.isArray(type))for(const option of type)input.add(new Option(option));
+  else input.type=type;
+  if(value!=null)input.value=value;
+  if(name==='earned'){input.min='0';input.step='1';}
+  if(name==='date')input.required=true;
+  label.append(input);root.append(label);
+ }
+ show('historyEdit');
+ get('historyForm').onsubmit=event=>{
+  event.preventDefault();get('editError').textContent='';
+  const form=Object.fromEntries(new FormData(event.currentTarget));
+  try {
+   const start=form.date===local?match.start:new Date(form.date+'T00:00:00').setHours(date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds());
+   const earned=form.earned===''?null:Number(form.earned);
+   const rivalName=form.rivalName.trim();
+   if(!Number.isFinite(start)||(earned!==null&&(!Number.isSafeInteger(earned)||earned<0))||(!rivalName&&match.rivalName))throw Error('Revisa la fecha, el rival y el puntaje.');
+   let sets=match.sets,result=match.result;
+   if(form.score.trim()!==original) {
+    const format=match.format==='super'||match.sets[2]?.super?'super':'normal';
+    const tokens=form.score.trim().split(/\s+-\s+/).map((token,i)=>{
+     if(i===2&&format==='super')return token.replace(/^(\d+)\s*-\s*(\d+)$/,'$1/$2');
+     const previous=match.sets[i];
+     return previous?.points && token.trim()===previous.me+'/'+previous.rival ? token+' ('+previous.points.me+'/'+previous.points.rival+')':token;
+    });
+    const normalized=tokens.join(' - ');
+    try {sets=parseSets(normalized,format,false);result=sets.filter(set=>SillaScore.winner(set)==='me').length===2?'Ganado':'Perdido';}
+    catch(error){if(match.result!=='Inconcluso')throw error;sets=parseSets(normalized,format,true);result='Inconcluso';}
+   }
+   const updated={...match,start,end:start+elapsed(match),earned,rivalName,kind:form.kind,sets,result};
+   if(!writeHistory(data.history.map(item=>item.number===match.number?updated:item)))throw Error('No se pudo guardar. Vuelve a intentar.');
+   openHistory();get('notice').textContent='Cambios guardados';
+  }catch(error){get('editError').textContent=error.message;}
+ };
 }
 get('cancelEdit').onclick=openHistory;
 get('newMatch').textContent = 'VOLVER AL HISTORIAL';
 get('newMatch').onclick = openHistory;
 get('tabMatch').onclick = home;
 get('tabHistory').onclick = openHistory;
+let restAudio,lastRestTick=0;
+const sound=get('restSound');
+try{sound.checked=localStorage.getItem('silla-rest-sound')!=='off';}catch{}
+sound.onchange=()=>{try{localStorage.setItem('silla-rest-sound',sound.checked?'on':'off');}catch{} if(sound.checked)prepareRestSound();};
+function prepareRestSound(){
+ if(!sound.checked)return;
+ try{const Audio=window.AudioContext||window.webkitAudioContext;if(Audio){restAudio??=new Audio();restAudio.resume().catch(()=>{});}}catch{}
+}
+function updateRestAlert(match,now){
+ const due=match.restEnd;
+ get('restStatus').textContent=due&&now>=due?'Descanso terminado':'';
+ if(due&&now>=due&&lastRestTick>=due-90000&&lastRestTick<due&&now-due<1000&&document.visibilityState==='visible'&&sound.checked&&restAudio?.state==='running'){
+  try{const tone=restAudio.createOscillator(),gain=restAudio.createGain();tone.frequency.value=880;gain.gain.value=.14;tone.connect(gain);gain.connect(restAudio.destination);tone.start();tone.stop(restAudio.currentTime+.18);}catch{}
+ }
+ lastRestTick=now;
+}
+document.addEventListener('visibilitychange',()=>{lastRestTick=Date.now();});
 if (active()) {
   openMarker();
 

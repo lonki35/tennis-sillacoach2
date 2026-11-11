@@ -20,3 +20,10 @@ Gira el teléfono para consultar las siete columnas del Historial. Toca el marca
 En Cómo juega el rival, selecciona Patrón de juego en cancha. La observación queda asociada al momento del partido y ajusta las consignas Sirviendo y Recibiendo.
 
 Pruebas en Chrome con vista móvil de 320 px y horizontal de 740 × 360 px: tabla de siete columnas, formato de súper tie-break, edición, eliminación, renumeración, acceso sin conexión y cambios de ambas consignas. Pendiente verificar publicación y actualización en el Android físico.
+
+## Edición, sensaciones y planes tácticos
+En Historial, Editar muestra fecha, rival, tipo, puntaje y marcador. Los demás datos se conservan.
+En Sensaciones, toca un nivel para elegirlo y tócalo otra vez para guardar. Puedes omitir los pendientes antes de ver las consignas.
+Los planes Sirviendo y Recibiendo describen inicio, construcción y cierre del punto.
+El pitido se prepara al iniciar el descanso. En segundo plano, con pantalla bloqueada o teléfono en silencio, Android y Chrome pueden impedir el audio. La app muestra Descanso terminado al volver.
+Prueba automatizada en Chrome: guardado sin conexión, validación y fallo de guardado simulado, dos toques, consignas, y disparo único del aviso con audio simulado. Pendiente probar sonido real y actualización en el Android físico.

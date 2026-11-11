@@ -11,36 +11,21 @@ const feelings = [
  ['Técnico','power','Potencia','Débil / Pasivo','Controlada (70–80 %)','Desmedida (100 %)']
 ];
 const extremes = levels => feelings.filter(([,id])=>levels[id]===3 || (id!=='fatigue' && levels[id]===1));
-function directions(match, reading, ms, general) {
-  const {levels,rivalServing,rivalReturning}=reading;
-  if(levels.fatigue===3) return {
-    serving:'Saca a una zona amplia y juega la siguiente pelota cruzada con altura.',
-    receiving:ms>=4500000?'Devuelve profundo al centro. Acorta el punto solo si recibes una pelota favorable.':'Bloquea la devolución al centro y recupera tu posición.'
-  };
-  const tight=levels.tension===3||levels.stroke===1||levels.pressure===3;
-  let serving = general || 'Busca una zona amplia con el primer saque y prepara una primera pelota cruzada.';
-  if(tight || rivalReturning==='deep') serving='Saca a una zona amplia. Si la devolución llega profunda, responde cruzado con margen.';
-  else if(rivalReturning==='short') serving='Si devuelve corto otra vez, avanza equilibrado y dirige la primera pelota a una zona amplia.';
-  else if(rivalReturning==='direction') serving=serve(match.hand);
-  let receiving='Devuelve profundo al centro y recupera tu posición.';
-  if(rivalServing==='strong') receiving='Acorta la preparación y bloquea el primer saque profundo al centro.';
-  if(rivalServing==='second' && levels.confidence===2 && levels.stroke===2) receiving='En el segundo saque, adelanta un paso si hay tiempo y devuelve profundo a una zona amplia.';
-  if(rivalServing==='irregular') receiving='Observa el primer saque. Ante un segundo más lento, entra equilibrado y devuelve profundo.';
-  if([levels.activation,levels.focus].includes(1)) serving='Antes de sacar, fija una zona y prepara una primera pelota cruzada.';
-  if(levels.focus===3||levels.frustration===3||levels.power===3) receiving='Elige una zona amplia antes del punto y devuelve con potencia controlada.';
-  const simple=tight||levels.focus===3||levels.frustration===3||levels.power===3;
-  const patterns={
-    baseline:['Si quedas equilibrado después del saque, juega profundo.','Devuelve profundo para evitar dejarle una pelota corta.'],
-    net:['Tras el saque, juega profundo para dificultar su subida.','Si avanza, juega bajo a sus pies. Si se pega a la red y tienes equilibrio, prueba un globo.'],
-    short:['Tras el saque, prioriza profundidad para que no entre con una pelota corta.','Devuelve profundo y recupera tu posición para el siguiente golpe.'],
-    mixed:['Tras el saque, juega profundo si sigue atrás.','Si sube, juega bajo a sus pies cuando estés equilibrado.']
-  };
-  const adjustment=patterns[reading.rivalPattern];
-  if(adjustment&&!simple) {
-    serving+=' '+adjustment[0];
-    receiving+=' '+adjustment[1];
-  }
-  return {serving,receiving};
+function pointPlans(match, reading, ms, general) {
+ const {levels,rivalServing,rivalReturning,rivalPattern}=reading;
+ const protect=levels.fatigue===3||levels.tension===3||levels.stroke===1||levels.pressure===3||levels.confidence===1||levels.power===3;
+ const atNet=rivalPattern==='net'||rivalPattern==='mixed';
+ const shortApproach=rivalPattern==='short';
+ const fatigueLate=levels.fatigue===3&&ms>=4500000;
+ const defend='Si la pelota llega profunda o quedas desequilibrado, juega cruzado con altura y recupera posición.';
+ const attack=fatigueLate?'Si llega corta y estás equilibrado, juega profundo al espacio libre y acorta el punto.':'Si llega corta y estás equilibrado, desplaza al rival al espacio libre y sube solo tras una aproximación profunda.';
+ const serveStart=protect?'Saca con ritmo a una zona amplia para iniciar equilibrado.':rivalReturning==='direction'?serve(match.hand):rivalReturning==='deep'?'Varía entre al cuerpo y a una zona amplia para limitar su devolución profunda.':rivalReturning==='short'?'Repite un saque con margen que provoque otra devolución corta.':'Saca con margen y prepárate para jugar la siguiente pelota.';
+ const buildServe=atNet?'Si se queda atrás, juega profundo para impedir la subida. Si avanza, baja la pelota a sus pies.':shortApproach?'Juega la primera pelota profunda para que no pueda avanzar sobre una bola corta.':rivalPattern==='baseline'?'Abre la cancha con una primera pelota cruzada profunda antes de cambiar de dirección.':protect?'Juega la primera pelota cruzada con altura y profundidad.':general||'Juega la primera pelota cruzada profunda y recupera posición.';
+ const returnStart=rivalServing==='strong'?'Acorta la preparación y bloquea profundo al centro.':rivalServing==='second'&&!protect?'Ante el segundo saque, entra equilibrado y devuelve profundo a una zona amplia.':'Devuelve profundo a una zona amplia y recupera posición.';
+ const buildReturn=atNet?'Si el rival avanza, juega bajo a sus pies. Si se queda atrás, usa profundidad cruzada.':shortApproach?'Mantén la siguiente pelota profunda para negarle la subida.':rivalPattern==='baseline'?'Construye cruzado profundo hasta moverlo fuera de su posición.':'Consolida la devolución con una pelota cruzada profunda.';
+ const finishReturn=atNet?'Si su volea queda corta, entra equilibrado y pasa al espacio libre. Si está pegado a la red, considera el globo. '+defend:attack+' '+defend;
+ const plan=(start,build,finish)=>'Inicio · '+start+'\nConstrucción · '+build+'\nCierre · '+finish;
+ return {serving:plan(serveStart,buildServe,attack+' '+defend),receiving:plan(returnStart,buildReturn,finishReturn)};
 }
 function formatSets(match) {
  return SillaScore.played(match).map(set=>set.me+(set.super?'-':'/')+set.rival).join(' - ')||'Sin marcador';

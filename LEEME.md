@@ -1,12 +1,14 @@
-# Tennis SillaCoach — Actualización
-1. Extrae el ZIP y abre el repositorio existente de GitHub.
-2. En Code → Add file → Upload files, sube index.html, score.js, sw.js, manifest.webmanifest, icon-192.png e icon-512.png a la carpeta que ya publica Pages. Pulsa Commit changes.
-3. En Actions, espera a que termine la publicación. En Android abre el enlace de siempre con Chrome y conexión. Si ves la versión anterior, recarga y vuelve a abrir la app instalada.
-4. Comprueba las pestañas Partido e Historial. Conserva los datos de Chrome para migrar los registros previos. Luego prueba abrir desde el icono en modo avión.
-Los campos ausentes de los partidos antiguos aparecen como Sin informar. Si un marcador manual anterior es incompatible con el formato automático, puedes guardarlo como inconcluso conservando sus games.
+# Tennis SillaCoach — Actualización para Android
 
-## Auditoría de esta versión
+1. Extrae el ZIP y abre el mismo repositorio de GitHub que publica la app.
+2. Sube index.html, score.js, coach.js, sw.js, manifest.webmanifest e icon-192.png e icon-512.png a la carpeta publicada. Confirma los cambios.
+3. Espera a que GitHub Pages termine de publicar. Abre el mismo enlace en Chrome con conexión y después vuelve a abrir la app instalada desde su icono. Si ves la versión anterior, recarga el enlace y vuelve a abrir la app.
+4. Conserva los datos de Chrome para mantener el historial. Comprueba que Datos del rival aparezca antes de iniciar. Luego prueba abrir la app en modo avión.
 
-- Chrome de escritorio con pantalla táctil emulada a 320 px: formulario del rival, nombre obligatorio, perfil recuperado tras recargar, pausa con movimiento reducido, consigna, informe y reapertura del historial sin red.
-- Pruebas de código: dos sets, tercero normal con tie-break 8–6, súper tie-break 10–9 y 11–9, deshacer tras avanzar y tras terminar, cierre inconcluso, migración idempotente, cronómetro, cierre único, ajuste al minuto 75 y direcciones contra diestros y zurdos.
-- Pendiente en Android físico: actualización desde el enlace ya publicado, verificación de tus datos reales, comportamiento tras bloqueo y prueba cronometrada en cancha.
+El puntaje propio se ingresa manualmente al cerrar el partido. El marcador se muestra como Yo/Rival. El correlativo visible se reajusta después de eliminar, mientras el identificador interno del partido permanece estable.
+
+## Verificación
+
+Chrome con vista móvil de 320 px. Perfil del rival, persistencia, alerta con dos extremos, excepción de fatiga fresca, consignas separadas, cierre, edición, eliminación, renumeración y reapertura sin conexión.
+
+Pendiente en Android físico. Publicación en el repositorio existente, actualización desde el icono instalado y comprobación con el historial real.

@@ -28,10 +28,22 @@ function directions(match, reading, ms, general) {
   if(rivalServing==='irregular') receiving='Observa el primer saque. Ante un segundo más lento, entra equilibrado y devuelve profundo.';
   if([levels.activation,levels.focus].includes(1)) serving='Antes de sacar, fija una zona y prepara una primera pelota cruzada.';
   if(levels.focus===3||levels.frustration===3||levels.power===3) receiving='Elige una zona amplia antes del punto y devuelve con potencia controlada.';
+  const simple=tight||levels.focus===3||levels.frustration===3||levels.power===3;
+  const patterns={
+    baseline:['Si quedas equilibrado después del saque, juega profundo.','Devuelve profundo para evitar dejarle una pelota corta.'],
+    net:['Tras el saque, juega profundo para dificultar su subida.','Si avanza, juega bajo a sus pies. Si se pega a la red y tienes equilibrio, prueba un globo.'],
+    short:['Tras el saque, prioriza profundidad para que no entre con una pelota corta.','Devuelve profundo y recupera tu posición para el siguiente golpe.'],
+    mixed:['Tras el saque, juega profundo si sigue atrás.','Si sube, juega bajo a sus pies cuando estés equilibrado.']
+  };
+  const adjustment=patterns[reading.rivalPattern];
+  if(adjustment&&!simple) {
+    serving+=' '+adjustment[0];
+    receiving+=' '+adjustment[1];
+  }
   return {serving,receiving};
 }
 function formatSets(match) {
- return SillaScore.played(match).map(set=>set.me+'/'+set.rival).join(' - ')||'Sin marcador';
+ return SillaScore.played(match).map(set=>set.me+(set.super?'-':'/')+set.rival).join(' - ')||'Sin marcador';
 }
 function winnerName(match) {
  if(match.result==='Ganado') return 'Yo';

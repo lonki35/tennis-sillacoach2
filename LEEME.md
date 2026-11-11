@@ -12,3 +12,11 @@ El puntaje propio se ingresa manualmente al cerrar el partido. El marcador se mu
 Chrome con vista móvil de 320 px. Perfil del rival, persistencia, alerta con dos extremos, excepción de fatiga fresca, consignas separadas, cierre, edición, eliminación, renumeración y reapertura sin conexión.
 
 Pendiente en Android físico. Publicación en el repositorio existente, actualización desde el icono instalado y comprobación con el historial real.
+
+## Historial horizontal y patrón del rival
+
+Gira el teléfono para consultar las siete columnas del Historial. Toca el marcador para ver ganador, duración e informe. Cada fila tiene Editar y Eliminar. En edición usa Guardar edición o Cancelar.
+
+En Cómo juega el rival, selecciona Patrón de juego en cancha. La observación queda asociada al momento del partido y ajusta las consignas Sirviendo y Recibiendo.
+
+Pruebas en Chrome con vista móvil de 320 px y horizontal de 740 × 360 px: tabla de siete columnas, formato de súper tie-break, edición, eliminación, renumeración, acceso sin conexión y cambios de ambas consignas. Pendiente verificar publicación y actualización en el Android físico.

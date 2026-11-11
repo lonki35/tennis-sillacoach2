@@ -25,3 +25,8 @@ Prueba que cada grupo guarde con el segundo toque en su encabezado, que al sigui
 ## Contraste de los botones de Sensaciones
 Aplica fondo blanco #FFFFFF y texto #111111 explícitos a los niveles y a Sin registrar en las nueve subcategorías. Usa fondo #162B3E y texto blanco #FFFFFF para una selección. Limita el esquema claro al panel de sensaciones y conserva los fondos de grupo. Define también el color de relleno del texto en Chromium para evitar que se vuelva ilegible. Comprueba foco visible.
 Prueba en Chrome con preferencia de modo oscuro y ancho de 320 px. Comprueba fondo, texto y relleno computados de todas las opciones y el estado seleccionado. Repite en Android físico con el modo oscuro habitual y verifica que las opciones se lean al abrir Físico, Mental y Técnico desde el icono actualizado. Verifica que el guardado por grupo y la recuperación en el siguiente descanso sigan funcionando. Actualiza la caché de la PWA y conserva el historial local.
+
+## Consignas breves para usar en cancha
+Muestra Sirviendo y Recibiendo en tres líneas cada una: Inicio, Construcción y Cierre. Limita cada plan a 28 palabras, incluidos los rótulos. Usa una acción por línea y una condición breve para atacar o recuperar margen. Mantén el ajuste por lateralidad cuando se conoce, el patrón de fondo o red, las observaciones de saque y devolución, y el margen cuando hay tensión o fatiga. Guarda en el informe el mismo plan que vio el jugador.
+Ejemplo: Inicio · Saca al cuerpo. Construcción · Abre con un cruzado profundo. Cierre · Corta y cómodo: ataca. Si no, cruzado.
+Verifica la extensión con distintas combinaciones de rival y sensaciones y prueba la vista móvil.

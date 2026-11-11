@@ -11,21 +11,21 @@ const feelings = [
  ['Técnico','power','Potencia','Débil / Pasivo','Controlada (70–80 %)','Desmedida (100 %)']
 ];
 const extremes = levels => feelings.filter(([,id])=>levels[id]===3 || (id!=='fatigue' && levels[id]===1));
-function pointPlans(match, reading, ms, general) {
+function pointPlans(match, reading, ms) {
  const {levels,rivalServing,rivalReturning,rivalPattern}=reading;
  const protect=levels.fatigue===3||levels.tension===3||levels.stroke===1||levels.pressure===3||levels.confidence===1||levels.power===3;
- const atNet=rivalPattern==='net'||rivalPattern==='mixed';
- const shortApproach=rivalPattern==='short';
- const fatigueLate=levels.fatigue===3&&ms>=4500000;
- const defend='Si la pelota llega profunda o quedas desequilibrado, juega cruzado con altura y recupera posición.';
- const attack=fatigueLate?'Si llega corta y estás equilibrado, juega profundo al espacio libre y acorta el punto.':'Si llega corta y estás equilibrado, desplaza al rival al espacio libre y sube solo tras una aproximación profunda.';
- const serveStart=protect?'Saca con ritmo a una zona amplia para iniciar equilibrado.':rivalReturning==='direction'?serve(match.hand):rivalReturning==='deep'?'Varía entre al cuerpo y a una zona amplia para limitar su devolución profunda.':rivalReturning==='short'?'Repite un saque con margen que provoque otra devolución corta.':'Saca con margen y prepárate para jugar la siguiente pelota.';
- const buildServe=atNet?'Si se queda atrás, juega profundo para impedir la subida. Si avanza, baja la pelota a sus pies.':shortApproach?'Juega la primera pelota profunda para que no pueda avanzar sobre una bola corta.':rivalPattern==='baseline'?'Abre la cancha con una primera pelota cruzada profunda antes de cambiar de dirección.':protect?'Juega la primera pelota cruzada con altura y profundidad.':general||'Juega la primera pelota cruzada profunda y recupera posición.';
- const returnStart=rivalServing==='strong'?'Acorta la preparación y bloquea profundo al centro.':rivalServing==='second'&&!protect?'Ante el segundo saque, entra equilibrado y devuelve profundo a una zona amplia.':'Devuelve profundo a una zona amplia y recupera posición.';
- const buildReturn=atNet?'Si el rival avanza, juega bajo a sus pies. Si se queda atrás, usa profundidad cruzada.':shortApproach?'Mantén la siguiente pelota profunda para negarle la subida.':rivalPattern==='baseline'?'Construye cruzado profundo hasta moverlo fuera de su posición.':'Consolida la devolución con una pelota cruzada profunda.';
- const finishReturn=atNet?'Si su volea queda corta, entra equilibrado y pasa al espacio libre. Si está pegado a la red, considera el globo. '+defend:attack+' '+defend;
- const plan=(start,build,finish)=>'Inicio · '+start+'\nConstrucción · '+build+'\nCierre · '+finish;
- return {serving:plan(serveStart,buildServe,attack+' '+defend),receiving:plan(returnStart,buildReturn,finishReturn)};
+ const net=rivalPattern==='net'||rivalPattern==='mixed';
+ const short=rivalPattern==='short';
+ const late=levels.fatigue===3&&ms>=4500000;
+ const target=match.hand==='Zurdo'?'Abierto en iguales, T en ventaja.':match.hand==='Diestro'?'T en iguales, abierto en ventaja.':'Saca a una zona amplia.';
+ const start=protect?'Saca con margen.':rivalReturning==='direction'?target:rivalReturning==='deep'?'Saca al cuerpo.':rivalReturning==='short'?'Repite el saque que lo deja corto.':'Saca con margen.';
+ const build=net?'Profundo si espera, bajo si sube.':short?'Profundo para impedir la subida.':protect?'Cruzado alto y profundo.':'Abre con un cruzado profundo.';
+ const returnStart=rivalServing==='strong'?'Bloquea profundo al centro.':rivalServing==='second'&&!protect?'Entra al segundo y devuelve profundo.':protect?'Devuelve con margen al centro.':'Devuelve profundo a zona amplia.';
+ const returnBuild=net?'Si sube, juega a sus pies.':short?'Mantén la pelota profunda.':protect?'Cruzado alto y profundo.':rivalPattern==='baseline'?'Muévelo con un cruzado profundo.':'Construye cruzado.';
+ const close=late?'Corta y cómodo: acelera. Si no, profundidad.':'Corta y cómodo: ataca. Si no, cruzado.';
+ const returnClose=net&&!protect?'Volea corta: pasa al espacio. Si no, neutraliza.':close;
+ const plan=(a,b,c)=>'Inicio · '+a+'\nConstrucción · '+b+'\nCierre · '+c;
+ return {serving:plan(start,build,close),receiving:plan(returnStart,returnBuild,returnClose)};
 }
 function formatSets(match) {
  return SillaScore.played(match).map(set=>set.me+(set.super?'-':'/')+set.rival).join(' - ')||'Sin marcador';

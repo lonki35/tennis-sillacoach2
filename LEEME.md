@@ -27,3 +27,6 @@ En Sensaciones, toca un nivel para elegirlo y tócalo otra vez para guardar. Pue
 Los planes Sirviendo y Recibiendo describen inicio, construcción y cierre del punto.
 El pitido se prepara al iniciar el descanso. En segundo plano, con pantalla bloqueada o teléfono en silencio, Android y Chrome pueden impedir el audio. La app muestra Descanso terminado al volver.
 Prueba automatizada en Chrome: guardado sin conexión, validación y fallo de guardado simulado, dos toques, consignas, y disparo único del aviso con audio simulado. Pendiente probar sonido real y actualización en el Android físico.
+
+## Última actualización
+Abre Físico, Mental o Técnico, elige tus niveles y vuelve a tocar el encabezado del grupo para guardar. Al siguiente descanso se recuperan tus selecciones. Historial muestra Duración. Usa Probar pitido antes del primer descanso y verifica el volumen multimedia del teléfono.

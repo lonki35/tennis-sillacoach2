@@ -1,25 +1,25 @@
 <!doctype html><html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#000000"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><title>Tennis SillaCoach</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#000;color:white;font:16px system-ui}main{max-width:520px;margin:auto;padding:16px 16px max(16px,env(safe-area-inset-bottom))}header{display:flex;gap:12px;align-items:center;border-bottom:1px solid #444;padding-bottom:12px}header img{width:44px}h1,h2,p{margin:0 0 12px}header h1{margin:0;font-size:1.35rem}h2{margin-top:18px}button,input,select{font:inherit;color:inherit;background:#171717;border:1px solid #777;border-radius:10px;padding:10px;min-height:48px}button{font-weight:750;cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #edff00;outline-offset:2px}.primary{background:#edff00;color:black;border:0;width:100%;min-height:64px;margin-top:10px}.row,.clocks{display:flex;gap:8px;align-items:center;justify-content:space-between}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.clocks{position:sticky;top:0;background:#000;z-index:1;padding:8px 0}.clocks div{flex:1}.clocks strong{display:block;font-size:1.9rem;font-variant-numeric:tabular-nums}.card{border:1px solid #666;border-radius:12px;padding:12px;margin:8px 0}.score{text-align:center}.score strong{display:block;font-size:3rem}.score button{flex:1;font-size:1.3rem}fieldset{border:1px solid #666;border-radius:10px;margin:12px 0}label{display:block;margin:8px 0}label input[type=number],label select{display:block;width:100%;margin-top:4px}input[type=checkbox]{min-height:0;width:20px;height:20px;vertical-align:middle}.wide{width:100%;margin-top:8px}.muted{color:#c6c6c6}.orb{background:#edff00;width:96px;height:96px;border-radius:50%;margin:24px auto;animation:breathe 5s infinite}@keyframes breathe{0%,100%{transform:scale(.7)}40%{transform:scale(1)}}@media(prefers-reduced-motion:reduce){.orb{display:none;animation:none}}#breath{text-align:center}li{margin-bottom:8px}[hidden]{display:none!important}
-</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header>
+.nav{margin:12px 0}.nav button{flex:1}.nav [aria-pressed=true]{background:#edff00;color:#000}.score button{width:100%;min-height:64px}.history-entry{text-align:left}.sets{overflow-wrap:anywhere}</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button></nav>
 <button id="install" class="wide" hidden>Instalar en Android</button><p id="notice" role="status"></p>
 <div id="clocks" class="clocks" hidden><div>PARTIDO<strong id="matchClock"></strong></div><div>DESCANSO<strong id="restClock"></strong></div></div>
-<section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><div class="grid"><label>Tu edad<input name="age" type="number" min="1" max="120" inputmode="numeric"></label><label>Edad del rival<input name="rivalAge" type="number" min="1" max="120" inputmode="numeric"></label></div><label>Lateralidad del rival<select name="hand"><option>Desconocida</option><option>Diestro</option><option>Zurdo</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form><div id="history"></div></section>
-<section id="marker" hidden><button class="wide" id="rest">INICIAR DESCANSO</button><div class="card row"><button id="prevSet" aria-label="Set anterior">−</button><strong id="setLabel"></strong><button id="nextSet" aria-label="Set siguiente">+</button></div><div class="grid" id="scores"></div><button class="wide" id="tie" aria-pressed="false">ESTOY EN TIE-BREAK</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
+<section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><label>Nombre del rival<input name="rivalName" type="text" required maxlength="100" style="display:block;width:100%"></label><div class="grid"><label>Categoría del rival<select name="category"><option>Sin informar</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label><label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option>Ranking</option></select></label></div><label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><div class="grid"><label>Tu edad<input name="age" type="number" min="1" max="120" inputmode="numeric"></label><label>Edad del rival<input name="rivalAge" type="number" min="1" max="120" inputmode="numeric"></label></div><label>Lateralidad del rival<select name="hand"><option>Desconocida</option><option>Diestro</option><option>Zurdo</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><div id="history"></div></section>
+<section id="marker" hidden><p id="matchName"></p><button class="wide" id="rest">INICIAR DESCANSO</button><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
 <section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div class="grid"><label>Confianza<select name="confidence"><option value="">Omitir</option><option>Baja</option><option>Media</option><option>Alta</option></select></label><label>Fatiga<select name="fatigue"><option value="">Omitir</option><option>Baja</option><option>Media</option><option>Alta</option></select></label></div><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="advice" hidden><h2>Próximos dos games</h2><div class="card"><strong id="mainTip"></strong><p class="muted" id="otherTip"></p></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
-<section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><label>Resultado<select name="result"><option>Sin indicar</option><option>Ganado</option><option>Perdido</option><option>Inconcluso</option></select></label><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="report" hidden><h2>Informe del partido</h2><div id="reportBody"></div><button class="primary" id="newMatch">VOLVER AL INICIO</button></section>
-</main><script>
+</main><script src="./score.js"></script><script>
 'use strict';
 const get = id => document.getElementById(id);
 const key = 'sillacoach-completa-v1';
-const screens = ['setup','marker','breath','feel','advice','close','report'];
-let data = {active:null, history:[]};
+const screens = ['setup','marker','breath','feel','advice','close','report','historyScreen'];
+let data = {version:2,active:null,history:[],next:1};
 try {
   const saved = JSON.parse(localStorage.getItem(key));
-  if (saved && Array.isArray(saved.history)) data = saved;
+  if (saved && Array.isArray(saved.history)) { data = SillaScore.migrate(saved); if (saved.version!==2) save(); }
 } catch { get('notice').textContent = 'Se abrió una sesión nueva.'; }
 const active = () => data.active;
 const score = () => active().sets[active().set];
@@ -30,7 +30,10 @@ function save() {
 }
 function show(id) {
   for (const screen of screens) get(screen).hidden = screen !== id;
-  get('clocks').hidden = !active() || id === 'setup' || id === 'report';
+  const history = id === 'historyScreen' || id === 'report';
+  get('tabMatch').setAttribute('aria-pressed',String(!history));
+  get('tabHistory').setAttribute('aria-pressed',String(history));
+  get('clocks').hidden = !active() || history || id === 'setup';
 }
 function clock(ms, total = false) {
   const s = Math.max(0,total ? Math.floor(ms/1000) : Math.ceil(ms/1000));
@@ -54,35 +57,39 @@ function tick(now = Date.now()) {
     }
   }
 }
+
 function renderScore() {
   const match = active();
   const current = score();
-  get('setLabel').textContent = 'SET '+(match.set+1);
-  get('prevSet').disabled = match.set === 0;
-  get('nextSet').disabled = match.set === 2;
-  const tie = current.tie || (current.me === 6 && current.rival === 6);
-  get('tie').textContent = tie ? 'TIE-BREAK ACTIVO' : 'ESTOY EN TIE-BREAK';
-  get('tie').setAttribute('aria-pressed', String(tie));
-  get('tie').disabled = current.me === 6 && current.rival === 6;
+  const points = current.super || !!current.points;
+  const completed = match.end!==null;
+  const finished = match.sets.map((set,index)=>SillaScore.winner(set)?'Set '+(index+1)+' · '+SillaScore.label(set):'').filter(Boolean);
+  get('matchName').textContent = 'Partido N.º '+match.number+' · '+(match.rivalName||'Rival sin informar');
+  get('closedSets').textContent = 'Sets jugados · '+(finished.join(' / ')||'Ninguno terminado');
+  get('setLabel').textContent = completed ? 'Partido terminado' : 'Set '+(match.set+1)+(current.super?' · Súper tie-break':points?' · Tie-break':' · Games');
+  get('undo').disabled = !match.undo;
+  get('rest').hidden = completed;
+  get('next').hidden = completed;
+  get('finish').textContent = completed?'CONFIRMAR RESULTADO Y VER INFORME':'CERRAR COMO INCONCLUSO';
+  get('finish').classList.toggle('primary',completed);
   for (const field of ['me','rival']) {
-    get(field).textContent = current[field];
-    get(field+'Down').disabled = current[field] === 0;
-    get(field+'Up').disabled = current[field] === 7;
+    get(field).textContent = (current.points??current)[field];
+    const button = get(field+'Up');
+    button.disabled = completed || !!match.legacyManual;
+    button.textContent = points?'+ Punto':'+ Game';
+    button.setAttribute('aria-label','Sumar '+(points?'punto':'game')+' a '+(field==='me'?'YO':'RIVAL'));
   }
 }
 get('scores').innerHTML = [['me','YO'],['rival','RIVAL']].map(([field,label]) =>
-  '<div class="card score">'+label+'<strong id="'+field+'"></strong><div class="row"><button id="'+field+'Down" aria-label="Restar game '+label+'">−</button><button id="'+field+'Up" aria-label="Sumar game '+label+'">+</button></div></div>').join('');
-for (const field of ['me','rival']) {
-  for (const [suffix,delta] of [['Down',-1],['Up',1]]) get(field+suffix).onclick = () => {
-    score()[field] = Math.max(0,Math.min(7,score()[field]+delta));
-    save(); renderScore();
-  };
-}
-for (const [id,delta] of [['prevSet',-1],['nextSet',1]]) get(id).onclick = () => {
-  active().set = Math.max(0,Math.min(2,active().set+delta));
-  save(); renderScore();
+  '<div class="card score">'+label+'<strong id="'+field+'"></strong><button id="'+field+'Up">+</button></div>').join('');
+for (const field of ['me','rival']) get(field+'Up').onclick = () => {
+  SillaScore.add(active(),field,Date.now());
+  save(); renderScore(); tick();
 };
-get('tie').onclick = () => { score().tie = !score().tie; save(); renderScore(); };
+get('undo').onclick = () => {
+  SillaScore.undo(active());
+  save(); renderScore(); tick();
+};
 get('setupForm').onchange = () => {
   const boxes = [...get('setupForm').querySelectorAll('[name=goal]')];
   const full = boxes.filter(box => box.checked).length >= 2;
@@ -92,20 +99,27 @@ get('setupForm').onsubmit = event => {
   event.preventDefault();
   if (active()) return;
   const form = new FormData(event.currentTarget);
+  const rivalName = form.get('rivalName').trim();
+  if (!rivalName) { get('notice').textContent='Escribe el nombre del rival.'; return; }
+  get('notice').textContent='';
   data.active = {
+    number:data.next++,rivalName,category:form.get('category'),kind:form.get('kind'),format:form.get('format'),undo:null,
     start:Date.now(), end:null, age:Number(form.get('age'))||null, rivalAge:Number(form.get('rivalAge'))||null,
     hand:form.get('hand'), goals:form.getAll('goal'), set:0, restEnd:null, offered:false,
-    sets:Array.from({length:3},()=>({me:0,rival:0,tie:false})), observations:[]
+    sets:[{me:0,rival:0}], observations:[]
   };
   save(); openMarker();
 };
-function openMarker() { show('marker'); renderScore(); tick(); }
+function openMarker() {
+  show('marker'); renderScore(); tick();
+  if (active().legacyManual) get('notice').textContent='El marcador manual anterior tiene un resultado fuera del formato automático. Puedes guardarlo como inconcluso.';
+}
 get('rest').onclick = () => {
   Object.assign(active(),{restEnd:Date.now()+90000,offered:false,breathEnd:null});
   save(); tick();
 };
-function critical({me,rival,tie}) {
-  return tie || (me===6 && rival===6) || (me<rival && (rival-me>=3 || rival===5 || (me===5 && rival===6)));
+function critical({me,rival,tie,points,super:isSuper}) {
+  return !!points || isSuper || tie || (me===6 && rival===6) || (me<rival && (rival-me>=3 || rival===5 || (me===5 && rival===6)));
 }
 function openFeel() {
   active().breathEnd = null;
@@ -177,7 +191,7 @@ get('feelForm').onsubmit = event => {
   const match = active();
   const ms = elapsed(match);
   const fields = Object.fromEntries(new FormData(event.currentTarget));
-  const observation = {...fields,minute:Math.floor(ms/60000),set:match.set+1,score:[score().me,score().rival]};
+  const observation = {...fields,minute:Math.floor(ms/60000),set:match.set+1,score:[(score().points??score()).me,(score().points??score()).rival],scoreLabel:SillaScore.label(score())};
   const [tip,alternative] = tactical(match,observation,ms);
   if (observation.quality || observation.fatigue || observation.confidence) match.observations.push(observation);
   save();
@@ -187,6 +201,7 @@ get('feelForm').onsubmit = event => {
 };
 get('finish').onclick = () => {
   get('closeForm').reset();
+  get('closeStatus').textContent = active().end===null ? 'Guardar como inconcluso con el marcador actual.' : 'Confirma el resultado registrado.';
   const assessment = get('assessment');
   assessment.replaceChildren();
   active().goals.forEach((goal,index) => {
@@ -205,12 +220,11 @@ get('closeForm').onsubmit = event => {
   const match = active();
   if (!match) return;
   const form = new FormData(event.currentTarget);
-  match.end = Date.now();
-  match.result = form.get('result');
+  SillaScore.close(match,Date.now());
   match.assessment = match.goals.map((goal,index)=>[goal,form.get('goal'+index)]);
-  data.history.unshift(match);
+  if (!data.history.some(item=>item.number===match.number)) data.history.unshift(match);
   data.active = null;
-  save(); report(match);
+  save(); get('setupForm').reset(); get('setupForm').onchange(); get('notice').textContent=''; report(match);
 };
 function report(match) {
   const body = get('reportBody');
@@ -229,12 +243,15 @@ function report(match) {
     card.append(heading,list);
     body.append(card);
   }
-  const sets = match.sets.slice(0,Math.max(match.set+1,match.sets[2].me||match.sets[2].rival?3:match.sets[1].me||match.sets[1].rival?2:1));
-  section('Resultado y duración',[match.result+' · '+sets.map(set=>set.me+'–'+set.rival).join(' / ')+' · '+clock(elapsed(match),true)]);
+  section('Resultado y duración',[
+    summary(match),
+    'Duración '+clock(elapsed(match),true),
+    'Formato del tercero · '+(match.format==='super'?'Súper tie-break a 10 puntos':match.format==='normal'?'Set normal':'Sin informar')
+  ]);
   const context = [];
-  if (match.hand !== 'Desconocida') context.push('Rival '+match.hand.toLowerCase()+'.');
+  if (match.hand && match.hand !== 'Desconocida') context.push('Rival '+match.hand.toLowerCase()+'.');
   if (match.age && match.rivalAge) context.push('Edades registradas: '+match.age+' y '+match.rivalAge+' años.');
-  const observations = match.observations;
+  const observations = match.observations ?? [];
   for (const [label,test] of [['Antes de 75 min',minute=>minute<75],['Desde 75 min',minute=>minute>=75]]) {
     const entries = observations.filter(item=>test(item.minute));
     if (!entries.length) continue;
@@ -244,36 +261,43 @@ function report(match) {
       if (item.quality) values.push(item.who+' · '+item.shot+' · '+item.quality);
       if (item.fatigue) values.push('Fatiga '+item.fatigue.toLowerCase());
       if (item.confidence) values.push('Confianza '+item.confidence.toLowerCase());
-      context.push('Min '+item.minute+' · set '+item.set+' ('+item.score.join('–')+') · '+values.join(' · '));
+      context.push('Min '+item.minute+' · set '+item.set+' ('+(item.scoreLabel??item.score.join('–'))+') · '+values.join(' · '));
     }
   }
   if (!observations.length) context.push('Sin observaciones durante el partido.');
   section('Diagnóstico por tramos',context);
-  section('Objetivos',match.assessment.length ? match.assessment.map(([goal,value])=>goal+' — '+value+' (autoevaluación)') : ['Sin objetivos seleccionados.']);
+  section('Objetivos',match.assessment?.length ? match.assessment.map(([goal,value])=>goal+' — '+value+' (autoevaluación)') : ['Sin objetivos seleccionados.']);
   const priorities = [...new Set(observations.filter(item=>item.who==='Yo' && negative(item.quality)).reverse().map(item=>item.shot))].slice(0,3);
   const training = priorities.length ? priorities : ['Saque','Revés'];
   section('Ajustes de juego',training.map(shot=>fixes[shot]));
   section('Entrenamiento semanal',training.map(shot=>drills[shot]));
   show('report');
 }
-function home() {
+
+function summary(match) {
+  const sets = SillaScore.played(match).map(SillaScore.label).join(' / ');
+  return 'N.º '+match.number+' · '+new Date(match.start).toLocaleDateString('es-CL')+
+    ' · '+(match.rivalName||'Rival sin informar')+' · Categoría '+(match.category||'Sin informar')+
+    ' · '+(match.kind||'Sin informar')+' · '+(match.result||'Sin informar')+' · '+(sets||'Sin marcador');
+}
+function home() { if (active()) openMarker(); else show('setup'); }
+function openHistory() {
   const history = get('history');
   history.replaceChildren();
-  if (data.history.length) {
-    const heading = document.createElement('h2');
-    heading.textContent = 'Partidos anteriores';
-    history.append(heading);
-  }
-  for (const match of data.history) {
+  if (!data.history.length) history.textContent = 'Todavía no hay partidos guardados.';
+  for (const match of [...data.history].sort((a,b)=>b.number-a.number)) {
     const button = document.createElement('button');
-    button.className = 'wide';
-    button.textContent = new Date(match.start).toLocaleString('es-CL')+' · '+match.result+' · '+clock(elapsed(match),true);
+    button.className = 'wide history-entry';
+    button.textContent = summary(match);
     button.onclick = () => report(match);
     history.append(button);
   }
-  show('setup');
+  show('historyScreen');
 }
-get('newMatch').onclick = home;
+get('newMatch').textContent = 'VOLVER AL HISTORIAL';
+get('newMatch').onclick = openHistory;
+get('tabMatch').onclick = home;
+get('tabHistory').onclick = openHistory;
 if (active()) {
   openMarker();
   if (active().breathEnd > Date.now()) { show('breath'); tick(); }

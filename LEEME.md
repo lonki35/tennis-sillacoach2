@@ -38,3 +38,4 @@ Usa Agregar partido anterior. Ingresa fecha, rival y marcador Yo/Rival. Para un 
 Ranking y Liga suman 1 punto por partido guardado más 1 por cada set ganado, incluido el súper tie-break decisivo. Un inconcluso suma el punto de partido y solo sus sets terminados y ganados. Amistoso suma 0. El historial calcula también los registros anteriores según el tipo y los sets disponibles. Editar el tipo o el marcador recalcula el puntaje.
 
 El descanso entre sets dura 120 segundos tras confirmar el set, si queda otro por jugar. Dentro de un set dura 90 segundos.
+Historial: el partido más antiguo recibe el número 1. Al agregar, editar o eliminar, la numeración visible se recalcula automáticamente por fecha.

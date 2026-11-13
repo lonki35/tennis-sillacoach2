@@ -489,8 +489,11 @@ function readingLabel(name,value) {
  const select=get('feelForm').elements[name];
  return [...select.options].find(option=>option.value===value)?.textContent||'Sin observar';
 }
+function chronologicalHistory() {
+  return [...data.history].sort((a,b)=>a.start-b.start || a.number-b.number);
+}
 function summary(match) {
-  const position=data.history.length-data.history.indexOf(match);
+  const position=chronologicalHistory().findIndex(item=>item.number===match.number)+1;
   return 'N.º '+position+' · '+new Date(match.start).toLocaleDateString('es-CL')+
     ' · Rival '+(match.rivalName||'No registrado')+' · '+(match.kind||'Sin informar')+
     ' · Puntaje propio '+(displayPoints(match))+' · Resultado '+(match.result||'No registrado')+
@@ -517,9 +520,9 @@ function openHistory() {
     const th=document.createElement('th');th.scope='col';th.textContent=title;header.append(th);
   }
   const body=table.createTBody();
-  for(const [i,match] of data.history.entries()) {
+  for(const [i,match] of chronologicalHistory().entries()) {
     const row=body.insertRow();
-    for(const value of [data.history.length-i,new Date(match.start).toLocaleDateString('es-CL',{day:'2-digit',month:'2-digit',year:'numeric'}),match.rivalName||'No registrado',match.kind||'Sin informar',displayPoints(match)]) row.insertCell().textContent=value;
+    for(const value of [i+1,new Date(match.start).toLocaleDateString('es-CL',{day:'2-digit',month:'2-digit',year:'numeric'}),match.rivalName||'No registrado',match.kind||'Sin informar',displayPoints(match)]) row.insertCell().textContent=value;
     const result=document.createElement('button');result.textContent=formatSets(match);result.onclick=()=>report(match);
     result.setAttribute('aria-label','Ver detalle del resultado '+formatSets(match));row.insertCell().append(result);
     row.insertCell().textContent=match.durationUnknown?'Sin registrar':clock(elapsed(match),true);

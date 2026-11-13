@@ -13,17 +13,17 @@ const feelings = [
 const extremes = levels => feelings.filter(([,id])=>levels[id]===3 || (id!=='fatigue' && levels[id]===1));
 function pointPlans(match, reading, ms) {
  const {levels,rivalServing,rivalReturning,rivalPattern}=reading;
- const protect=levels.fatigue===3||levels.tension===3||levels.stroke===1||levels.pressure===3||levels.confidence===1||levels.power===3;
- const net=rivalPattern==='net'||rivalPattern==='mixed';
- const short=rivalPattern==='short';
- const late=levels.fatigue===3&&ms>=4500000;
+ const tired=levels.fatigue===3, blocked=levels.confidence===3, unstable=levels.stroke===3;
+ const careful=levels.fatigue===2||levels.confidence===1||levels.stroke===1;
+ const protect=tired||blocked||unstable||careful;
+ const net=['net','mixed'].includes(rivalPattern), short=rivalPattern==='short';
  const target=match.hand==='Zurdo'?'Abierto en iguales, T en ventaja.':match.hand==='Diestro'?'T en iguales, abierto en ventaja.':'Saca a una zona amplia.';
- const start=protect?'Saca con margen.':rivalReturning==='direction'?target:rivalReturning==='deep'?'Saca al cuerpo.':rivalReturning==='short'?'Repite el saque que lo deja corto.':'Saca con margen.';
- const build=net?'Profundo si espera, bajo si sube.':short?'Profundo para impedir la subida.':protect?'Cruzado alto y profundo.':'Abre con un cruzado profundo.';
- const returnStart=rivalServing==='strong'?'Bloquea profundo al centro.':rivalServing==='second'&&!protect?'Entra al segundo y devuelve profundo.':protect?'Devuelve con margen al centro.':'Devuelve profundo a zona amplia.';
- const returnBuild=net?'Si sube, juega a sus pies.':short?'Mantén la pelota profunda.':protect?'Cruzado alto y profundo.':rivalPattern==='baseline'?'Muévelo con un cruzado profundo.':'Construye cruzado.';
- const close=late?'Corta y cómodo: acelera. Si no, profundidad.':'Corta y cómodo: ataca. Si no, cruzado.';
- const returnClose=net&&!protect?'Volea corta: pasa al espacio. Si no, neutraliza.':close;
+ const start=blocked?'Respira y saca a zona amplia.':protect?'Saca con margen.':rivalReturning==='direction'?target:rivalReturning==='deep'?'Saca al cuerpo.':rivalReturning==='short'?'Repite el saque que lo deja corto.':'Saca con margen.';
+ const build=net?'Profundo si espera, bajo si sube.':short?'Profundo para impedir la subida.':unstable?'Cruzado alto, lejos de las líneas.':tired?'Juega profundo y recupera posición.':protect?'Cruzado profundo con margen.':'Abre con un cruzado profundo.';
+ const returnStart=rivalServing==='strong'?'Bloquea profundo al centro.':blocked?'Respira y devuelve al centro.':rivalServing==='second'&&!protect?'Entra al segundo y devuelve profundo.':protect?'Devuelve con margen al centro.':'Devuelve profundo a zona amplia.';
+ const returnBuild=net?'Si sube, juega a sus pies.':unstable?'Cruzado alto, lejos de las líneas.':short||tired?'Mantén la pelota profunda.':rivalPattern==='baseline'?'Muévelo con un cruzado profundo.':'Construye cruzado.';
+ const close=tired&&ms>=4500000?'Corta y cómodo: acorta el punto.':unstable||blocked?'Ataca solo una corta clara.':protect?'Si dudas, repite cruzado.':'Corta y cómodo: ataca. Si no, cruzado.';
+ const returnClose=net&&!protect?'Volea corta: pasa al espacio.':close;
  const plan=(a,b,c)=>'Inicio · '+a+'\nConstrucción · '+b+'\nCierre · '+c;
  return {serving:plan(start,build,close),receiving:plan(returnStart,returnBuild,returnClose)};
 }

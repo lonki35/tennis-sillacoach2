@@ -25,8 +25,8 @@ const SillaScore = (() => {
     if (!match.sets[match.set]) match.sets.push({...empty(),super:match.set===2 && match.format==='super'});
   }
   function add(match, side, now) {
-    if (match.end!==null || !['me','rival'].includes(side)) return;
-    match.undo = {set:match.set,sets:JSON.parse(JSON.stringify(match.sets)),end:match.end};
+    if (match.end!==null || match.pendingSet || !['me','rival'].includes(side)) return;
+    match.undo = {set:match.set,sets:JSON.parse(JSON.stringify(match.sets)),end:match.end,pendingSet:match.pendingSet??null,progressLength:match.progress?.length??0};
     const set = match.sets[match.set];
     const tally = set.points ?? set;
     tally[side]++;
@@ -34,12 +34,15 @@ const SillaScore = (() => {
     const won = winner(set);
     if (won) {
       if (set.points) set[won] = 7;
-      advance(match,now);
+      if(match.confirmSets) match.pendingSet={at:now};
+      else advance(match,now);
     }
   }
   function undo(match) {
     if (!match.undo) return;
-    Object.assign(match,match.undo,{undo:null});
+    const previous=match.undo;
+    if(match.progress) match.progress.length=previous.progressLength??0;
+    Object.assign(match,previous,{undo:null});
   }
   function label(set) {
     const score = set.me+'–'+set.rival;
@@ -74,6 +77,6 @@ const SillaScore = (() => {
     match.end ??= now;
     delete match.undo;
   }
-  return {winner,add,undo,label,played,migrate,close};
+  return {winner,add,undo,confirm(match){if(!match.pendingSet)return;const {at}=match.pendingSet;match.pendingSet=null;advance(match,at);},label,played,migrate,close};
 })();
 if (typeof module!=='undefined') module.exports = SillaScore;

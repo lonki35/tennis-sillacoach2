@@ -33,3 +33,8 @@ Abre Físico, Mental o Técnico, elige tus niveles y vuelve a tocar el encabezad
 
 ## Historial manual
 Usa Agregar partido anterior. Ingresa fecha, rival y marcador Yo/Rival. Para un súper tie-break, elige ese formato y escribe, por ejemplo, 3/6 - 6/4 - 10-8. Puedes dejar en blanco puntaje, duración y apreciación personal. Toca el marcador para abrir el resumen final. Actualiza los archivos en el mismo repositorio sin borrar los datos del navegador.
+
+## Puntaje automático
+Ranking y Liga suman 1 punto por partido guardado más 1 por cada set ganado, incluido el súper tie-break decisivo. Un inconcluso suma el punto de partido y solo sus sets terminados y ganados. Amistoso suma 0. El historial calcula también los registros anteriores según el tipo y los sets disponibles. Editar el tipo o el marcador recalcula el puntaje.
+
+El descanso entre sets dura 120 segundos tras confirmar el set, si queda otro por jugar. Dentro de un set dura 90 segundos.

@@ -33,3 +33,11 @@ Verifica la extensión con distintas combinaciones de rival y sensaciones y prue
 
 ## Registro rápido
 Un toque guarda una sensación. Se recuperan los niveles en el descanso siguiente. Inicio, Construcción y Cierre se muestran en recuadros. La consigna distingue rachas de games y puntos. En games normales, Registrar puntos para la racha permite anotar puntos opcionalmente sin cambiar el marcador. En desempates se usan los puntos del marcador.
+
+## Puntaje automático
+Ranking y Liga suman 1 punto por partido guardado más 1 por cada set ganado, incluido el súper tie-break decisivo. Un inconcluso suma el punto de partido y solo sus sets terminados y ganados. Amistoso suma 0. El historial calcula también los registros anteriores según el tipo y los sets disponibles. Editar el tipo o el marcador recalcula el puntaje.
+
+## Recomendación de Juego
+Una selección por grupo, de 1 favorable a 3 menos favorable. El cansancio ajusta el esfuerzo, el estado mental la rutina y el margen, y el estado técnico el riesgo del golpe. Mantén los recuadros Inicio, Construcción y Cierre para saque y devolución.
+
+El descanso entre sets dura 120 segundos tras confirmar el set, si queda otro por jugar. Dentro de un set dura 90 segundos.

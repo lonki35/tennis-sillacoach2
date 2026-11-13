@@ -1,34 +1,34 @@
 <!doctype html><html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#000000"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><title>Tennis SillaCoach</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#000;color:white;font:16px system-ui}main{max-width:520px;margin:auto;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}header{display:flex;gap:12px;align-items:center;border-bottom:1px solid #444;padding-bottom:12px}header img{width:44px}h1,h2,p{margin:0 0 12px}header h1{margin:0;font-size:1.35rem}h2{margin-top:18px}button,input,select{font:inherit;color:inherit;background:#171717;border:1px solid #777;border-radius:10px;padding:10px;min-height:48px}button{font-weight:750;cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #edff00;outline-offset:2px}.primary{background:#edff00;color:black;border:0;width:100%;min-height:64px;margin-top:10px}.row,.clocks{display:flex;gap:8px;align-items:center;justify-content:space-between}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.clocks{position:sticky;top:0;background:#000;z-index:1;padding:8px 0}.clocks div{flex:1}.clocks strong{display:block;font-size:1.9rem;font-variant-numeric:tabular-nums}.card{border:1px solid #666;border-radius:12px;padding:12px;margin:8px 0}.score{text-align:center}.score strong{display:block;font-size:3rem}.score button{flex:1;font-size:1.3rem}fieldset{border:1px solid #666;border-radius:10px;margin:12px 0}label{display:block;margin:8px 0}label input[type=number],label select{display:block;width:100%;margin-top:4px}input[type=checkbox]{min-height:0;width:20px;height:20px;vertical-align:middle}.wide{width:100%;margin-top:8px}.muted{color:#c6c6c6}.orb{background:#edff00;width:96px;height:96px;border-radius:50%;margin:24px auto;animation:breathe 5s infinite}@keyframes breathe{0%,100%{transform:scale(.7)}40%{transform:scale(1)}}@media(prefers-reduced-motion:reduce){.orb{display:none;animation:none}}#breath{text-align:center}li{margin-bottom:8px}[hidden]{display:none!important}
-.nav{margin:12px 0}.nav button{flex:1}.nav [aria-pressed=true]{background:#edff00;color:#000}.score button{width:100%;min-height:64px}.history-entry{text-align:left}.sets{overflow-wrap:anywhere}button,summary{min-width:48px;min-height:48px}summary{display:list-item;padding:12px 0;cursor:pointer}fieldset{min-width:0}select{max-width:100%}.profile{overflow-wrap:anywhere}.grid>*{min-width:0}.feel-tabs button{flex:1}.feel-tabs [aria-pressed=true],.level[aria-pressed=true]{outline:2px solid white;outline-offset:2px}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.level{font-size:.83rem;padding:6px}.level[aria-pressed=true]{background:#ffd84b;color:black}.level.good[aria-pressed=true]{background:#86df99}.level.high[aria-pressed=true]{background:#ff8585}.edit-field{width:100%;display:block}.history-actions button{flex:1}label textarea{font:inherit;background:#171717;color:white;min-height:90px}#feelAlert:empty{display:none}.history-scroll{overflow-x:auto;margin:8px 0}.history-table{width:100%;border-collapse:collapse;text-align:left}.history-table th,.history-table td{padding:6px;border-bottom:1px solid #555}.history-table th{color:#edff00}.history-table td:nth-child(2),.history-table td:nth-child(6){white-space:nowrap}.history-table .row{justify-content:flex-start}.history-table button{white-space:nowrap;padding:6px}.history-table td:nth-child(3){overflow-wrap:anywhere;min-width:65px}@media(orientation:landscape){main:has(#historyScreen:not([hidden])){max-width:1050px}.history-table{font-size:.88rem}}.feeling-panel{padding:8px;border-radius:12px}.feeling-panel[data-group="0"]{background:#197048}.feeling-panel[data-group="1"]{background:#932d49}.feeling-panel[data-group="2"]{background:#245d9b}.feeling-panel fieldset{background:var(--tone);color:#101820}.feeling-panel legend{background:var(--tone);padding:2px 6px;border-radius:5px}.feeling-panel button{margin-top:4px}.feeling-panel .wide{margin-top:8px}.feeling-state{font-weight:bold;margin-top:8px}#restStatus{font-weight:bold}#mainTip,#otherTip{white-space:pre-line}.feeling-panel .level,.feeling-panel fieldset button{background:#fff;color:#111;border:1px solid #333}.feeling-panel .level[aria-pressed=true]{background:#162b3e;color:#fff;outline:2px solid #111}.feeling-state{color:#111}.feel-tabs button{color:#fff;background:#172438}.feel-tabs button[aria-pressed=true]{background:#fff;color:#111;outline:2px solid #75cbff}#restStatus{color:inherit}.history-table td:nth-child(7){white-space:nowrap}
+.nav{margin:12px 0}.nav button{flex:1}.nav [aria-pressed=true]{background:#edff00;color:#000}.score button{width:100%;min-height:64px}.history-entry{text-align:left}.sets{overflow-wrap:anywhere}button,summary{min-width:48px;min-height:48px}summary{display:list-item;padding:12px 0;cursor:pointer}fieldset{min-width:0}select{max-width:100%}.profile{overflow-wrap:anywhere}.grid>*{min-width:0}.feel-tabs button{flex:1}.feel-tabs [aria-pressed=true],.level[aria-pressed=true]{outline:2px solid white;outline-offset:2px}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.level{font-size:.83rem;padding:6px}.level[aria-pressed=true]{background:#ffd84b;color:black}.level.good[aria-pressed=true]{background:#86df99}.level.high[aria-pressed=true]{background:#ff8585}.edit-field{width:100%;display:block}.history-actions button{flex:1}label textarea{font:inherit;background:#171717;color:white;min-height:90px}#feelAlert:empty{display:none}.history-scroll{overflow-x:auto;margin:8px 0}.history-table{width:100%;border-collapse:collapse;text-align:left}.history-table th,.history-table td{padding:6px;border-bottom:1px solid #555}.history-table th{color:#edff00}.history-table td:nth-child(2),.history-table td:nth-child(6){white-space:nowrap}.history-table .row{justify-content:flex-start}.history-table button{white-space:nowrap;padding:6px}.history-table td:nth-child(3){overflow-wrap:anywhere;min-width:65px}@media(orientation:landscape){main:has(#historyScreen:not([hidden])){max-width:1050px}.history-table{font-size:.88rem}}.feeling-panel{padding:8px;border-radius:12px}.feeling-panel[data-group="0"]{background:#197048}.feeling-panel[data-group="1"]{background:#932d49}.feeling-panel[data-group="2"]{background:#245d9b}.feeling-panel fieldset{background:var(--tone);color:#101820}.feeling-panel legend{background:var(--tone);padding:2px 6px;border-radius:5px}.feeling-panel button{margin-top:4px}.feeling-panel .wide{margin-top:8px}.feeling-state{font-weight:bold;margin-top:8px}#restStatus{font-weight:bold}#mainTip,#otherTip{white-space:pre-line}.feeling-panel .level,.feeling-panel button{background:#fff;color:#111;border:1px solid #333}.feeling-panel .level[aria-pressed=true]{background:#162b3e;color:#fff;outline:2px solid #111}.feeling-state{color:#111}.feel-tabs button{color:#fff;background:#172438}.feel-tabs button[aria-pressed=true]{background:#fff;color:#111;outline:2px solid #75cbff}#restStatus{color:inherit}.history-table td:nth-child(7){white-space:nowrap}
 .feeling-panel{color-scheme:only light}
-.feeling-panel fieldset button{appearance:none;-webkit-appearance:none;background:#fff!important;color:#111!important;-webkit-text-fill-color:#111!important;border:1px solid #333;opacity:1}
-.feeling-panel fieldset button[aria-pressed="true"]{background:#162b3e!important;color:#fff!important;-webkit-text-fill-color:#fff!important;outline:2px solid #111}
-.feeling-panel fieldset button:focus-visible{outline:3px solid #005fcc;outline-offset:2px}
-@media(forced-colors:active){.feeling-panel fieldset button{forced-color-adjust:none}}
-.plan-step{border:1px solid #777;border-radius:8px;padding:8px;margin:5px 0}.plan-step p{margin:3px 0 0}.quick-feel{margin:8px 0}.quick-feel .levels button{min-width:0}</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button></nav>
+.feeling-panel button{appearance:none;-webkit-appearance:none;background:#fff!important;color:#111!important;-webkit-text-fill-color:#111!important;border:1px solid #333;opacity:1}
+.feeling-panel button[aria-pressed="true"]{background:#162b3e!important;color:#fff!important;-webkit-text-fill-color:#fff!important;outline:2px solid #111}
+.feeling-panel button:focus-visible{outline:3px solid #005fcc;outline-offset:2px}
+@media(forced-colors:active){.feeling-panel button{forced-color-adjust:none}}
+.plan-step{border:1px solid #777;border-radius:8px;padding:8px;margin:5px 0}.plan-step p{margin:3px 0 0}.quick-feel{margin:8px 0}.quick-feel .levels button{min-width:0}</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button><button id="tabPlayer" aria-pressed="false">Jugador</button></nav>
 <button id="install" class="wide" hidden>Instalar en Android</button><p id="notice" role="status"></p>
 <div id="clocks" class="clocks" hidden><div>PARTIDO<strong id="matchClock"></strong></div><div>DESCANSO<strong id="restClock"></strong></div></div>
-<section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><fieldset><legend>Datos del rival</legend>
+<section id="player" hidden><h2>Datos del jugador</h2><img id="playerPhoto" hidden alt="Foto del jugador" style="width:96px;height:96px;object-fit:cover;border-radius:50%"><form id="playerForm"><label>Nombre<input class="edit-field" name="name" required maxlength="100"></label><label>Foto<input class="edit-field" name="photo" type="file" accept="image/*"></label><label>Edad<input class="edit-field" name="age" type="number" min="1" max="120"></label><label>Mano dominante<select name="hand"><option>Diestro</option><option>Zurdo</option></select></label><label>Revés<select name="backhand"><option>A una mano</option><option>A dos manos</option><option>Mixto</option></select></label><label>Uso del slice<select name="slice"><option>Bajo</option><option>Medio</option><option>Alto</option></select></label><button class="primary">GUARDAR PERFIL</button></form></section><section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><fieldset><legend>Datos del rival</legend>
 <label>Nombre del rival<input name="rivalName" type="text" required maxlength="100" style="display:block;width:100%"></label>
 <label for="rivalHand">Lateralidad del rival</label><select id="rivalHand" name="hand" style="width:100%"><option>Desconocida</option><option>Diestro</option><option>Zurdo</option></select>
 <label>Edad aproximada del rival<input name="rivalAge" type="number" min="1" max="120" step="1" inputmode="numeric" placeholder="Sin informar"></label>
 <label>Categoría del rival<select name="category"><option>Sin informar</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label></fieldset>
-<label>Mi edad<input name="age" type="number" min="1" max="120" step="1" inputmode="numeric"></label>
+
 <label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option>Ranking</option></select></label>
 <label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><button id="addPast" class="primary">Agregar partido anterior</button><div id="history"></div></section>
-<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
+<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button id="confirmSet" class="primary" hidden>GUARDAR RESULTADO DEL SET</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
-<section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button" hidden>Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
-<section id="advice" hidden><h2 id="adviceHorizon">Próximos dos games</h2><p id="momentum" role="status"></p><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><div id="mainTip"></div><h3>Recibiendo</h3><div id="otherTip"></div></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
-<section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><label>Apreciación personal (opcional)<textarea class="edit-field" name="finalNote"></textarea></label><label>Puntaje obtenido por mí<input name="earned" type="number" min="0" max="9007199254740991" step="1" inputmode="numeric" required value="0"></label><details><summary>Sensaciones al finalizar</summary><div id="closingFeelings"></div></details><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button" hidden>Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER RECOMENDACIÓN DE JUEGO</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="advice" hidden><h2>Recomendación de Juego</h2><h2 id="adviceHorizon">Próximos dos games</h2><p id="momentum" role="status"></p><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><div id="mainTip"></div><h3>Recibiendo</h3><div id="otherTip"></div></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><label>Apreciación personal (opcional)<textarea class="edit-field" name="finalNote"></textarea></label><p id="autoPoints"></p><details><summary>Sensaciones al finalizar</summary><div id="closingFeelings"></div></details><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="historyEdit" hidden><h2 id="historyTitle">Editar partido</h2><form id="historyForm"><div id="historyFields"></div><p id="editError" role="alert"></p><button class="primary">GUARDAR EDICIÓN</button></form><button class="wide" id="cancelEdit">CANCELAR</button></section><section id="report" hidden><h2>Informe del partido</h2><div id="reportBody"></div><button class="primary" id="newMatch">VOLVER AL INICIO</button></section>
 </main><script src="./score.js"></script><script src="./coach.js"></script><script>
 'use strict';
 const get = id => document.getElementById(id);
 const key = 'sillacoach-completa-v1';
-const screens = ['setup','marker','breath','feel','advice','close','report','historyScreen','historyEdit'];
+const screens = ['setup','marker','breath','feel','advice','close','report','historyScreen','historyEdit','player'];
 let data = {version:2,active:null,history:[],next:1};
 try {
   const saved = JSON.parse(localStorage.getItem(key));
@@ -43,10 +43,11 @@ function save() {
 }
 function show(id) {
   for (const screen of screens) get(screen).hidden = screen !== id;
+  get('tabPlayer').setAttribute('aria-pressed',String(id==='player'));
   const history = id === 'historyScreen' || id === 'report' || id === 'historyEdit';
-  get('tabMatch').setAttribute('aria-pressed',String(!history));
+  get('tabMatch').setAttribute('aria-pressed',String(!history&&id!=='player'));
   get('tabHistory').setAttribute('aria-pressed',String(history));
-  get('clocks').hidden = !active() || history || id === 'setup';
+  get('clocks').hidden = !active() || history || id === 'setup' || id === 'player';
 }
 function clock(ms, total = false) {
   const s = Math.max(0,total ? Math.floor(ms/1000) : Math.ceil(ms/1000));
@@ -54,14 +55,15 @@ function clock(ms, total = false) {
   return total ? two(Math.floor(s/3600))+':'+two(Math.floor(s/60)%60)+':'+two(s%60)
     : Math.floor(s/60)+':'+two(s%60);
 }
+function restLength(match){return match.setBreakFor===match.set ? 120000 : 90000;}
 function tick(now = Date.now()) {
   const match = active();
   if (!match) return;
   get('matchClock').textContent = clock(elapsed(match,now),true);
-  const remaining = match.restEnd === null ? 90000 : match.restEnd-now;
+  const remaining = match.restEnd === null ? restLength(match) : match.restEnd-now;
   updateRestAlert(match,now);
   get('restClock').textContent = clock(remaining);
-  get('rest').textContent = match.restEnd !== null && remaining > 0 ? 'REINICIAR DESCANSO' : 'INICIAR DESCANSO';
+  get('rest').textContent = match.restEnd !== null && remaining > 0 ? 'REINICIAR DESCANSO' : restLength(match)===120000 && match.restEnd===null ? 'INICIAR DESCANSO DE SET · 2:00' : 'INICIAR DESCANSO';
   if (!get('breath').hidden) {
     const left = match.breathEnd-now;
     if (left <= 0) openFeel();
@@ -77,23 +79,25 @@ function renderScore() {
   const current = score();
   const points = current.super || !!current.points;
   const completed = match.end!==null;
+  get("confirmSet").hidden=!match.pendingSet;
   get('rivalProfile').textContent = rivalProfile(match);
   get('pointTracking').hidden=points||completed;
   get('pointRun').textContent=describeRun(match);
   get('pointUndo').disabled=!match.pointTracking||!match.manualPoints?.length;
-  const finished = match.sets.map((set,index)=>SillaScore.winner(set)?'Set '+(index+1)+' · '+SillaScore.label(set):'').filter(Boolean);
+  const finished = match.sets.map((set,index)=>SillaScore.winner(set)&&!(match.pendingSet&&index===match.set)?'Set '+(index+1)+' · '+SillaScore.label(set):'').filter(Boolean);
   get('matchName').textContent = 'Partido N.º '+match.number+' · '+(match.rivalName||'Rival sin informar');
   get('closedSets').textContent = 'Sets jugados · '+(finished.join(' / ')||'Ninguno terminado');
   get('setLabel').textContent = completed ? 'Partido terminado' : 'Set '+(match.set+1)+(current.super?' · Súper tie-break':points?' · Tie-break':' · Games');
   get('undo').disabled = !match.undo;
   get('rest').hidden = completed;
   get('next').hidden = completed;
+  get('finish').hidden=!!match.pendingSet;
   get('finish').textContent = completed?'CONFIRMAR RESULTADO Y VER INFORME':'CERRAR COMO INCONCLUSO';
   get('finish').classList.toggle('primary',completed);
   for (const field of ['me','rival']) {
     get(field).textContent = (current.points??current)[field];
     const button = get(field+'Up');
-    button.disabled = completed || !!match.legacyManual;
+    button.disabled = completed || !!match.pendingSet || !!match.legacyManual;
     button.textContent = points?'+ Punto':'+ Game';
     button.setAttribute('aria-label','Sumar '+(points?'punto':'game')+' a '+(field==='me'?'YO':'RIVAL'));
   }
@@ -104,12 +108,26 @@ for (const field of ['me','rival']) get(field+'Up').onclick = () => {
   const match=active();
   const unit=score().points||score().super?'punto':'game';
   const pointTracking=match.pointTracking;
+  const index=match.set;
+  if(match.setBreakFor===index)delete match.setBreakFor;
+  match.confirmSets=true;
   SillaScore.add(match,field,Date.now());
+  const played=match.sets[index];
+  (match.progress??=[]).push({set:index,me:played.me,rival:played.rival});
   if(match.undo){match.undo.scoreRun=match.scoreRun;match.undo.pointTracking=pointTracking;}
   match.scoreRun=nextRun(match.scoreRun,field,unit);
   if(unit==='punto')match.pointTracking=false;
 
   save(); renderScore(); tick();
+};
+get('confirmSet').onclick=()=>{
+ const match=active();
+ const snapshot={...match,sets:match.sets.slice()};
+ const set=match.set;
+ SillaScore.confirm(match);
+ if(match.set!==set && match.end===null)Object.assign(match,{setBreakFor:match.set,restEnd:null,breathEnd:null,offered:false});
+ if(!save())Object.assign(match,snapshot);
+ renderScore();tick();
 };
 get('undo').onclick = () => {
   SillaScore.undo(active());
@@ -129,7 +147,7 @@ get('setupForm').onsubmit = event => {
   get('notice').textContent='';
   data.active = {
     number:data.next++,rivalName,category:form.get('category'),kind:form.get('kind'),format:form.get('format'),undo:null,
-    start:Date.now(), end:null, age:Number(form.get('age'))||null, rivalAge:Number(form.get('rivalAge'))||null,
+    start:Date.now(), end:null, age:data.player?.age??null, player:data.player??null, confirmSets:true, rivalAge:Number(form.get('rivalAge'))||null,
     hand:form.get('hand'), goals:form.getAll('goal'), set:0, restEnd:null, offered:false,
     sets:[{me:0,rival:0}], observations:[]
   };
@@ -144,7 +162,9 @@ function openMarker() {
 get('rest').onclick = () => {
   prepareRestSound();
   const now=Date.now();
-  Object.assign(active(),{restEnd:now+90000,offered:false,breathEnd:null});
+  const match=active();
+  const length=match.restEnd>now ? (match.restDuration??90000) : match.restEnd===null ? restLength(match) : 90000;
+  Object.assign(match,{restEnd:now+length,restDuration:length,offered:false,breathEnd:null});
   lastRestTick=now;
   save(); tick();
 };
@@ -259,6 +279,7 @@ get('feelForm').onsubmit = event => {
   const observation = {...fields,unit:score().points||score().super?'puntos':'games',minute:Math.floor(ms/60000),set:match.set+1,score:[(score().points??score()).me,(score().points??score()).rival],scoreLabel:SillaScore.label(score())};
   observation.levels = readFeelings(fields);
   observation.feelingMoments=match.feelingDraft.moments;
+  observation.groupedFeelings=true;
   observation.fatigue = ['', 'Baja','Media','Alta'][observation.levels.fatigue||0];
   observation.confidence = ['', 'Baja','Media','Alta'][observation.levels.confidence||0];
   const tacticalReading={...observation,fatigue:observation.levels.fatigue===3?'Alta':observation.levels.fatigue?'Baja':''};
@@ -299,6 +320,7 @@ get('finish').onclick = () => {
     label.append(select);
     assessment.append(label);
   });
+  get('autoPoints').textContent='Puntaje automático · '+competitionPoints(active());
   renderFeelings('closingFeelings');
   show('close');
 };
@@ -307,19 +329,24 @@ get('closeForm').onsubmit = event => {
   const match = active();
   if (!match) return;
   const form = new FormData(event.currentTarget);
-  const earned=Number(form.get('earned'));
-  if (!Number.isSafeInteger(earned)||earned<0) return;
+  const earned=competitionPoints(match);
   const finished = {...match,earned,finalNote:String(form.get("finalNote")??"").trim(),observations:[...match.observations]};
   SillaScore.close(finished,Date.now());
   const levels=readFeelings(Object.fromEntries(form));
   const last=score();
-  if(Object.keys(levels).length) finished.observations.push({closing:true,levels,minute:Math.floor(elapsed(finished)/60000),set:match.set+1,score:[last.me,last.rival],scoreLabel:SillaScore.label(last)});
+  if(Object.keys(levels).length) finished.observations.push({closing:true,groupedFeelings:true,levels,minute:Math.floor(elapsed(finished)/60000),set:match.set+1,score:[last.me,last.rival],scoreLabel:SillaScore.label(last)});
   finished.finalSummary=matchReview(finished);
   finished.assessment = match.goals.map((goal,index)=>[goal,form.get('goal'+index)]);
   const previous = data;
   data = {...data,active:null,history:[finished,...data.history.filter(item=>item.number!==finished.number)]};
   if (!save()) { data=previous; return; } get('setupForm').reset(); get('setupForm').onchange(); get('notice').textContent=''; report(finished);
 };
+function competitionPoints(match){
+ return ['Ranking','Liga'].includes(match.kind) ? 1+match.sets.filter(set=>SillaScore.winner(set)==='me').length : 0;
+}
+function displayPoints(match){
+ return ['Ranking','Liga','Amistoso'].includes(match.kind)?competitionPoints(match):(match.earned??'No registrado');
+}
 function matchReview(match){
  const sets=SillaScore.played(match);
  const lead=sets.map(set=>SillaScore.winner(set));
@@ -328,8 +355,26 @@ function matchReview(match){
  else if(lead.length===3&&lead[0]!==lead[2])appreciation=lead[2]==='me'?'Remontaste tras perder el primer set y ganaste el tercer set.':'Ganaste el primer set, pero el rival se llevó los dos siguientes.';
  else if(lead.length===3)appreciation='El partido se decidió en el tercer set.';
  else if(lead.length===2&&lead[0]&&lead[0]===lead[1])appreciation=lead[0]==='me'?'Sostuviste la ventaja en ambos sets.':'El rival ganó ambos sets.';
+ const context=[];
+ if(match.player?.name)context.push('Jugador · '+match.player.name+'.');
+ if(match.age&&match.rivalAge){
+  const difference=match.age-match.rivalAge;
+  context.push(difference===0?'Misma edad registrada.':'Diferencia de edad · '+Math.abs(difference)+' años. '+(difference>0?'Eres mayor que el rival.':'Eres menor que el rival.'));
+ }
+ for(const [i,set] of sets.entries()){
+  const events=(match.progress??[]).filter(event=>event.set===i);
+  if(SillaScore.winner(set)==='me'&&events.some(event=>event.rival-event.me>=2))context.push('Set '+(i+1)+' · remontaste una desventaja de al menos dos '+(set.super?'puntos':'games')+'.');
+ }
+ for(const [,key,label] of feelings){
+  const values=(match.observations??[]).map(item=>item.levels?.[key]).filter(value=>[1,2,3].includes(value));
+  if(values.length>1&&values[0]!==values.at(-1)){
+   const ideal=value=>value===2||(key==='fatigue'&&value===1);
+   const change=!ideal(values[0])&&ideal(values.at(-1))?'volviste a un nivel favorable':ideal(values[0])&&!ideal(values.at(-1))?'terminaste fuera del nivel favorable':'cambió durante el partido';
+   context.push(label+' · '+change+' ('+values[0]+' → '+values.at(-1)+').');
+  }
+ }
  const last=match.recommendations?.at(-1)?.momentum;
- return ['Marcador final · '+formatSets(match)+'. '+match.result+'.',appreciation,...(last&&!last.includes('sin confirmar')?['Última lectura registrada · '+last]:[])];
+ return ['Marcador final · '+formatSets(match)+'. '+match.result+'.',appreciation,...context,...(last&&!last.includes('sin confirmar')?['Última lectura registrada · '+last]:[])];
 }
 function report(match) {
   const body = get('reportBody');
@@ -365,7 +410,8 @@ function report(match) {
     for (const item of entries) {
       const values = [];
       if (item.quality) values.push(item.who+' · '+item.shot+' · '+item.quality);
-      if (item.levels) for(const [,id,label,...options] of feelings) if(item.levels[id]) values.push(label+' '+item.levels[id]+' '+options[item.levels[id]-1]);
+      if(item.groupedFeelings) for(const [group,key,labels,codes] of feelingGroups){const index=codes.indexOf(item.levels[key]);if(index>=0)values.push(group+' · '+labels[index]);}
+      if (item.levels && !item.groupedFeelings) for(const [,id,label,...options] of feelings) if(item.levels[id]) values.push(label+' '+item.levels[id]+' '+options[item.levels[id]-1]);
       if (item.rivalPattern) values.push('Patrón de juego · '+readingLabel('rivalPattern',item.rivalPattern));
       if (item.note) values.push(item.note);
       if (item.rivalServing) values.push('Rival sirviendo · '+readingLabel('rivalServing',item.rivalServing));
@@ -378,7 +424,7 @@ function report(match) {
   if (!observations.length) context.push('Sin observaciones durante el partido.');
   section('Resumen y apreciación final',[...(match.finalSummary??matchReview(match)),...(match.finalNote?[match.finalNote]:[])]);
   section('Diagnóstico por tramos',context);
-  if(match.recommendations?.length) section('Consignas del partido',match.recommendations.flatMap(item=>[
+  if(match.recommendations?.length) section('Recomendaciones de Juego',match.recommendations.flatMap(item=>[
     'Min '+item.minute+' · Set '+item.set+' · '+item.basis+(item.momentum?' · '+item.momentum:''),
     'Sirviendo · '+item.tip,
     'Recibiendo · '+item.alternative
@@ -397,70 +443,46 @@ function rivalProfile(match) {
 function readFeelings(fields) {
   return Object.fromEntries(feelings.map(([,id])=>[id,Number(fields['level_'+id])]).filter(([,n])=>[1,2,3].includes(n)));
 }
-function renderFeelings(id,alertId,initial={}) {
- const root=get(id),quick=id==='feelingControls';
- let selected=null;
- const pending={};
- const chosen={...initial};
- const palette=[['#dcf7e4','#bce8c8','#8bcea2'],['#ffe3e7','#fbc9d3','#f3aabb','#eb92a7'],['#e1f1ff','#a9d2fa']];
- const tabs=document.createElement('div');tabs.className='row feel-tabs';
- const progress=document.createElement('p');progress.setAttribute('role','status');
- const panels=[],cards=[];
- root.replaceChildren(tabs,progress);
+const feelingGroups=[
+ ['Físico','fatigue',['Fresco y ligero','Exigido, pero sostenible','Agotado / Sin piernas'],[1,2,3],'#dcf7e4'],
+ ['Mental','confidence',['Sereno y enfocado','Algo tenso o disperso','Bloqueado o muy frustrado'],[2,1,3],'#ffe3e7'],
+ ['Técnico','stroke',['Golpes fluidos y con control','Golpes irregulares, con margen','Golpes sin control o sin margen'],[2,1,3],'#e1f1ff']
+];
+function renderFeelings(id,alertId,initial={}){
+ const root=get(id),quick=id==='feelingControls',chosen={...initial},cards=[];
+ root.replaceChildren();
+ for(const [group,key,labels,values,tone] of feelingGroups){
+  const field=document.createElement('fieldset');field.className='card feeling-panel';
+  field.style.setProperty('--tone',tone);field.style.background=tone;field.style.color='#111';
+  const legend=document.createElement('legend');legend.textContent=group;field.append(legend);
+  const input=document.createElement('input');input.type='hidden';input.name='level_'+key;field.append(input);
+  const buttons=[];
+  for(const [i,label] of [...labels,'Sin registrar'].entries()){
+   const value=values[i]??0;
+   const button=document.createElement('button');button.type='button';button.className='wide level';
+   button.textContent=i<3?(i+1)+' · '+label:label;
+   button.onclick=()=>{
+    if(quick){
+     const match=active(),draft=match.feelingDraft;
+     const before={levels:draft.levels,moments:draft.moments},last=match.lastFeelings;
+     draft.levels={...draft.levels,[key]:value};
+     draft.moments={...draft.moments,[key]:{minute:Math.floor(elapsed(match)/60000),set:match.set+1,score:SillaScore.label(score())}};
+     match.lastFeelings={levels:draft.levels,moments:draft.moments};
+     if(!save()){Object.assign(draft,before);match.lastFeelings=last;return;}
+    }
+    chosen[key]=value;refresh();
+   };
+   field.append(button);buttons.push(button);
+  }
+  root.append(field);cards.push({key,values,input,buttons});
+ }
  function refresh(){
-  progress.textContent=Object.keys(chosen).length+' de 9 resueltas';
-  for(const card of cards){
-   card.state.textContent=Object.hasOwn(pending,card.key)?'Pendiente · toca el grupo para guardar':chosen[card.key]===0?'Sin registrar':chosen[card.key]?'Guardada':'';
-   for(const [i,button] of card.buttons.entries())button.setAttribute('aria-pressed',String((pending[card.key]??chosen[card.key])===i+1));
-   card.input.value=chosen[card.key]||'';
+  for(const {key,values,input,buttons} of cards){
+   input.value=chosen[key]||'';
+   buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(chosen[key]===(values[i]??0))));
   }
-  if(quick)get('feelForm').querySelector('button.primary').disabled=Object.keys(pending).length>0;
-  if(alertId)get(alertId).textContent=extremes(chosen).length>=2?(chosen.tension===3&&chosen.stroke===1?'Afloja el agarre y exhala al golpear. Busca altura y una zona amplia.':'Elige una zona amplia y reduce el riesgo en el próximo punto.'):'';
+  if(alertId)get(alertId).textContent=feelingGroups.filter(([,key,,values])=>chosen[key]===values[2]).length>=2?'Reduce el riesgo: elige una zona amplia y juega con margen.':'';
  }
- function commit(entries){
-  if(quick){
-   const match=active(),draft=match.feelingDraft;
-   const previous={...draft.levels},moments={...draft.moments},last=match.lastFeelings;
-   for(const [key,n] of entries){
-    draft.levels[key]=n;
-    draft.moments[key]={minute:Math.floor(elapsed(match)/60000),set:match.set+1,score:SillaScore.label(score())};
-   }
-   match.lastFeelings={levels:{...draft.levels},moments:{...draft.moments}};
-   if(!save()){draft.levels=previous;draft.moments=moments;match.lastFeelings=last;return false;}
-  }
-  Object.assign(chosen,Object.fromEntries(entries));for(const [key] of entries)delete pending[key];refresh();return true;
- }
- for(const [i,group] of ['Físico','Mental','Técnico'].entries()){
-  const tab=document.createElement('button');tab.type='button';tab.textContent=group;tabs.append(tab);
-  const panel=document.createElement('div');panel.hidden=true;tab.setAttribute('aria-pressed','false');panel.className='feeling-panel';panel.dataset.group=i;root.append(panel);panels.push({tab,panel});
-  tab.onclick=()=>{
-   if(selected===tab){const entries=cards.filter(card=>card.group===i&&Object.hasOwn(pending,card.key)).map(card=>[card.key,pending[card.key]]);if(entries.length&&!commit(entries))return;
-    selected=null;panel.hidden=true;tab.setAttribute('aria-pressed','false');return;}
-   selected=tab;for(const item of panels){item.panel.hidden=item.tab!==tab;item.tab.setAttribute('aria-pressed',String(item.tab===tab));}
-  };
-  for(const [j,[,key,title,...labels]] of feelings.filter(item=>item[0]===group).entries()){
-   const field=document.createElement('fieldset');field.className='card';field.style.setProperty('--tone',palette[i][j]);
-   const legend=document.createElement('legend');legend.textContent=title;
-   const input=document.createElement('input');input.type='hidden';input.name='level_'+key;
-   const row=document.createElement('div');row.className='levels';
-   const state=document.createElement('p');state.className='feeling-state';
-   const skip=document.createElement('button');skip.type='button';skip.textContent='Sin registrar';
-   const buttons=labels.map((label,index)=>{
-    const n=index+1,button=document.createElement('button');button.type='button';button.className='level';
-    button.textContent=n+' · '+label;button.setAttribute('aria-label',title+' '+n+' '+label);
-    button.onclick=()=>{if(quick)commit([[key,n]]);else{pending[key]=n;refresh();}};
-    row.append(button);return button;
-   });
-   skip.onclick=()=>{if(quick)commit([[key,0]]);else{pending[key]=0;refresh();}};
-   field.append(legend,input,row,state,skip);panel.append(field);cards.push({key,input,state,buttons,group:i,field});
-  }
- }
- if(quick)get('omitFeelings').onclick=()=>{
-  if(Object.keys(pending).length&&!window.confirm('¿Descartar las selecciones pendientes?'))return;
-  for(const key of Object.keys(pending))delete pending[key];
-  commit(feelings.filter(([,key])=>!Object.hasOwn(chosen,key)).map(([,key])=>[key,0]));
- };
- if(quick){panels[0].tab.onclick();const hint=document.createElement('p');hint.textContent='Un toque guarda. Cambia solo lo necesario o ve directo a la consigna.';root.prepend(hint);}
  refresh();
 }
 function readingLabel(name,value) {
@@ -471,7 +493,7 @@ function summary(match) {
   const position=data.history.length-data.history.indexOf(match);
   return 'N.º '+position+' · '+new Date(match.start).toLocaleDateString('es-CL')+
     ' · Rival '+(match.rivalName||'No registrado')+' · '+(match.kind||'Sin informar')+
-    ' · Puntaje propio '+(match.earned??'No registrado')+' · Resultado '+(match.result||'No registrado')+
+    ' · Puntaje propio '+(displayPoints(match))+' · Resultado '+(match.result||'No registrado')+
     ' · Ganador '+winnerName(match)+' · '+formatSets(match)+' · '+clock(elapsed(match),true);
 }
 function home() { if (active()) openMarker(); else show('setup'); }
@@ -497,7 +519,7 @@ function openHistory() {
   const body=table.createTBody();
   for(const [i,match] of data.history.entries()) {
     const row=body.insertRow();
-    for(const value of [data.history.length-i,new Date(match.start).toLocaleDateString('es-CL',{day:'2-digit',month:'2-digit',year:'numeric'}),match.rivalName||'No registrado',match.kind||'Sin informar',match.earned??'No registrado']) row.insertCell().textContent=value;
+    for(const value of [data.history.length-i,new Date(match.start).toLocaleDateString('es-CL',{day:'2-digit',month:'2-digit',year:'numeric'}),match.rivalName||'No registrado',match.kind||'Sin informar',displayPoints(match)]) row.insertCell().textContent=value;
     const result=document.createElement('button');result.textContent=formatSets(match);result.onclick=()=>report(match);
     result.setAttribute('aria-label','Ver detalle del resultado '+formatSets(match));row.insertCell().append(result);
     row.insertCell().textContent=match.durationUnknown?'Sin registrar':clock(elapsed(match),true);
@@ -520,7 +542,7 @@ function openEdit(match) {
  const date=new Date(match.start);
  const local=new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,10);
  const original=formatSets(match)==='Sin marcador'?'':formatSets(match);
- const fields=[['date','Fecha','date',local],['rivalName','Rival','text',match.rivalName],['kind','Tipo de partido',['Sin informar','Amistoso','Liga','Ranking'],match.kind],['earned','Puntaje propio','number',match.earned],['score','Marcador Yo/Rival','text',original]];
+ const fields=[['date','Fecha','date',local],['rivalName','Rival','text',match.rivalName],['kind','Tipo de partido',['Sin informar','Amistoso','Liga','Ranking'],match.kind],['score','Marcador Yo/Rival','text',original]];
  if(adding)fields.push(['format','Tercer set',['Normal','Súper tie-break'],'Normal'],['duration','Duración en minutos (opcional)','number',null],['incomplete','Estado',['Terminado','Inconcluso'],'Terminado']);
  fields.push(['finalNote','Apreciación personal (opcional)','textarea',match.finalNote]);
  for(const [name,title,type,value] of fields){
@@ -530,7 +552,7 @@ function openEdit(match) {
   if(Array.isArray(type))for(const option of type)input.add(new Option(option));
   else if(type!=='textarea')input.type=type;
   if(value!=null)input.value=value;
-  if(name==='earned'){input.min='0';input.step='1';}
+
   if(name==='date'||(adding&&name==='rivalName'))input.required=true;
   label.append(input);root.append(label);
  }
@@ -540,9 +562,9 @@ function openEdit(match) {
   const form=Object.fromEntries(new FormData(event.currentTarget));
   try {
    const start=form.date===local?match.start:new Date(form.date+'T00:00:00').setHours(date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds());
-   const earned=form.earned===''?null:Number(form.earned);
+
    const rivalName=form.rivalName.trim();
-   if(!Number.isFinite(start)||(earned!==null&&(!Number.isSafeInteger(earned)||earned<0))||(!rivalName&&(adding||match.rivalName)))throw Error('Revisa la fecha, el rival y el puntaje.');
+   if(!Number.isFinite(start)||(!rivalName&&(adding||match.rivalName)))throw Error('Revisa la fecha, el rival y el puntaje.');
    let sets=match.sets,result=match.result;
    if(adding||form.score.trim()!==original) {
     const format=form.format==='Súper tie-break'||match.format==='super'||match.sets[2]?.super?'super':'normal';
@@ -557,8 +579,9 @@ function openEdit(match) {
    }
    const duration=adding&&form.duration!==''?Number(form.duration)*60000:elapsed(match);
    if(!Number.isSafeInteger(duration)||duration<0)throw Error('Revisa la duración.');
-   const updated={...match,start,end:start+duration,earned,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
+   const updated={...match,start,end:start+duration,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
      ...(adding?{manual:true,durationUnknown:form.duration==='',format:form.format==='Súper tie-break'?'super':'normal'}:{})};
+   updated.earned=competitionPoints(updated);
    updated.finalSummary=matchReview(updated);
    if(adding){
     const previous=data;
@@ -576,6 +599,37 @@ get('newMatch').textContent = 'VOLVER AL HISTORIAL';
 get('newMatch').onclick = openHistory;
 get('tabMatch').onclick = home;
 get('tabHistory').onclick = openHistory;
+const playerForm=get('playerForm');
+get('tabPlayer').onclick=()=>{
+ const profile=data.player??{};
+ playerForm.reset();
+ for(const name of ['name','age','hand','backhand','slice'])if(profile[name]!=null)playerForm.elements[name].value=profile[name];
+ get('playerPhoto').hidden=!profile.photo;
+ if(profile.photo)get('playerPhoto').src=profile.photo;
+ show('player');
+};
+playerForm.onsubmit=async event=>{
+ event.preventDefault();
+ const form=new FormData(playerForm),name=form.get('name').trim();
+ if(!name){get('notice').textContent='Ingresa tu nombre.';return;}
+ const button=playerForm.querySelector('button');button.disabled=true;
+ try{
+  let photo=data.player?.photo??null;
+  const file=form.get('photo');
+  if(file.size){
+   const bitmap=await createImageBitmap(file);
+   const canvas=document.createElement('canvas'),scale=Math.min(1,256/Math.max(bitmap.width,bitmap.height));
+   canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+   canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();
+   photo=canvas.toDataURL('image/jpeg',.8);
+  }
+  const previous=data.player;
+  data.player={name,photo,age:Number(form.get('age'))||null,hand:form.get('hand'),backhand:form.get('backhand'),slice:form.get('slice')};
+  if(!save()){data.player=previous;return;}
+  get('tabPlayer').onclick();get('notice').textContent='Perfil guardado';
+ }catch{get('notice').textContent='No se pudo leer la foto. Elige otra imagen.';}
+ finally{button.disabled=false;}
+};
 let restAudio,lastRestTick=0;
 const sound=get('restSound');
 try{sound.checked=localStorage.getItem('silla-rest-sound')!=='off';}catch{}
@@ -593,7 +647,7 @@ get('testRestSound').onclick=async()=>{
 function updateRestAlert(match,now){
  const due=match.restEnd;
  get('restStatus').textContent=due&&now>=due?'Descanso terminado':'';
- if(due&&now>=due&&lastRestTick>=due-90000&&lastRestTick<due&&document.visibilityState==='visible'&&sound.checked&&restAudio?.state==='running'){
+ if(due&&now>=due&&lastRestTick>=due-(match.restDuration??90000)&&lastRestTick<due&&document.visibilityState==='visible'&&sound.checked&&restAudio?.state==='running'){
   playRestTone();
  }
  lastRestTick=now;

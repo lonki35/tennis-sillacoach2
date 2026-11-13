@@ -42,3 +42,4 @@ Una selección por grupo, de 1 favorable a 3 menos favorable. El cansancio ajust
 
 El descanso entre sets dura 120 segundos tras confirmar el set, si queda otro por jugar. Dentro de un set dura 90 segundos.
 Rivales: registra nombre y, opcionalmente, edad y datos técnicos. Selecciona el perfil en Partido. Las observaciones del encuentro tienen prioridad sobre el perfil.
+Objetivos del día: permite elegir hasta cuatro de ocho objetivos, incluidos slices, devolución, passing shots, globos y paralelos.

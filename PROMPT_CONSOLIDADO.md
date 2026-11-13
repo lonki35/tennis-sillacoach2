@@ -30,3 +30,6 @@ Prueba en Chrome con preferencia de modo oscuro y ancho de 320 px. Comprueba fon
 Muestra Sirviendo y Recibiendo en tres líneas cada una: Inicio, Construcción y Cierre. Limita cada plan a 28 palabras, incluidos los rótulos. Usa una acción por línea y una condición breve para atacar o recuperar margen. Mantén el ajuste por lateralidad cuando se conoce, el patrón de fondo o red, las observaciones de saque y devolución, y el margen cuando hay tensión o fatiga. Guarda en el informe el mismo plan que vio el jugador.
 Ejemplo: Inicio · Saca al cuerpo. Construcción · Abre con un cruzado profundo. Cierre · Corta y cómodo: ataca. Si no, cruzado.
 Verifica la extensión con distintas combinaciones de rival y sensaciones y prueba la vista móvil.
+
+## Registro rápido
+Un toque guarda una sensación. Se recuperan los niveles en el descanso siguiente. Inicio, Construcción y Cierre se muestran en recuadros. La consigna distingue rachas de games y puntos. En games normales, Registrar puntos para la racha permite anotar puntos opcionalmente sin cambiar el marcador. En desempates se usan los puntos del marcador.

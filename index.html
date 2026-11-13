@@ -7,7 +7,7 @@
 .feeling-panel fieldset button[aria-pressed="true"]{background:#162b3e!important;color:#fff!important;-webkit-text-fill-color:#fff!important;outline:2px solid #111}
 .feeling-panel fieldset button:focus-visible{outline:3px solid #005fcc;outline-offset:2px}
 @media(forced-colors:active){.feeling-panel fieldset button{forced-color-adjust:none}}
-</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button></nav>
+.plan-step{border:1px solid #777;border-radius:8px;padding:8px;margin:5px 0}.plan-step p{margin:3px 0 0}.quick-feel{margin:8px 0}.quick-feel .levels button{min-width:0}</style></head><body><main><header><img src="./icon-192.png" alt=""><h1>Tennis SillaCoach</h1></header><nav class="row nav" aria-label="Secciones"><button id="tabMatch" aria-pressed="true">Partido</button><button id="tabHistory" aria-pressed="false">Historial</button></nav>
 <button id="install" class="wide" hidden>Instalar en Android</button><p id="notice" role="status"></p>
 <div id="clocks" class="clocks" hidden><div>PARTIDO<strong id="matchClock"></strong></div><div>DESCANSO<strong id="restClock"></strong></div></div>
 <section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><fieldset><legend>Datos del rival</legend>
@@ -18,10 +18,10 @@
 <label>Mi edad<input name="age" type="number" min="1" max="120" step="1" inputmode="numeric"></label>
 <label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option>Ranking</option></select></label>
 <label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><div id="history"></div></section>
-<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
+<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
-<section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button">Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
-<section id="advice" hidden><h2 id="adviceHorizon">Próximos dos games</h2><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><p id="mainTip"></p><h3>Recibiendo</h3><p id="otherTip"></p></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button" hidden>Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="advice" hidden><h2 id="adviceHorizon">Próximos dos games</h2><p id="momentum" role="status"></p><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><div id="mainTip"></div><h3>Recibiendo</h3><div id="otherTip"></div></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><label>Puntaje obtenido por mí<input name="earned" type="number" min="0" max="9007199254740991" step="1" inputmode="numeric" required value="0"></label><details><summary>Sensaciones al finalizar</summary><div id="closingFeelings"></div></details><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="historyEdit" hidden><h2>Editar partido</h2><form id="historyForm"><div id="historyFields"></div><p id="editError" role="alert"></p><button class="primary">GUARDAR EDICIÓN</button></form><button class="wide" id="cancelEdit">CANCELAR</button></section><section id="report" hidden><h2>Informe del partido</h2><div id="reportBody"></div><button class="primary" id="newMatch">VOLVER AL INICIO</button></section>
 </main><script src="./score.js"></script><script src="./coach.js"></script><script>
@@ -78,6 +78,9 @@ function renderScore() {
   const points = current.super || !!current.points;
   const completed = match.end!==null;
   get('rivalProfile').textContent = rivalProfile(match);
+  get('pointTracking').hidden=points||completed;
+  get('pointRun').textContent=describeRun(match);
+  get('pointUndo').disabled=!match.pointTracking||!match.manualPoints?.length;
   const finished = match.sets.map((set,index)=>SillaScore.winner(set)?'Set '+(index+1)+' · '+SillaScore.label(set):'').filter(Boolean);
   get('matchName').textContent = 'Partido N.º '+match.number+' · '+(match.rivalName||'Rival sin informar');
   get('closedSets').textContent = 'Sets jugados · '+(finished.join(' / ')||'Ninguno terminado');
@@ -98,7 +101,14 @@ function renderScore() {
 get('scores').innerHTML = [['me','YO'],['rival','RIVAL']].map(([field,label]) =>
   '<div class="card score">'+label+'<strong id="'+field+'"></strong><button id="'+field+'Up">+</button></div>').join('');
 for (const field of ['me','rival']) get(field+'Up').onclick = () => {
-  SillaScore.add(active(),field,Date.now());
+  const match=active();
+  const unit=score().points||score().super?'punto':'game';
+  const pointTracking=match.pointTracking;
+  SillaScore.add(match,field,Date.now());
+  if(match.undo){match.undo.scoreRun=match.scoreRun;match.undo.pointTracking=pointTracking;}
+  match.scoreRun=nextRun(match.scoreRun,field,unit);
+  if(unit==='punto')match.pointTracking=false;
+
   save(); renderScore(); tick();
 };
 get('undo').onclick = () => {
@@ -141,6 +151,34 @@ get('rest').onclick = () => {
 function critical({me,rival,tie,points,super:isSuper}) {
   return !!points || isSuper || tie || (me===6 && rival===6) || (me<rival && (rival-me>=3 || rival===5 || (me===5 && rival===6)));
 }
+function renderPlan(id,plan){
+ const root=get(id);root.replaceChildren();
+ for(const line of plan.split('\n')){
+  const [label,...copy]=line.split(' · ');
+  const card=document.createElement('div');card.className='plan-step';
+  const heading=document.createElement('strong');heading.textContent=label;
+  const body=document.createElement('p');body.textContent=copy.join(' · ');
+  card.append(heading,body);root.append(card);
+ }
+}
+function nextRun(previous,side,unit){
+ return {side,unit,count:previous?.side===side&&previous.unit===unit?previous.count+1:1};
+}
+function describeRun(match){
+ const events=match.manualPoints??[];
+ const last=events.at(-1);
+ const run=match.pointTracking?(last?{side:last,unit:'punto',count:events.length-events.findLastIndex(side=>side!==last)-1}:null):match.scoreRun;
+ if(!run||run.count<2)return 'Racha reciente sin confirmar.';
+ return (run.side==='me'?'Ganaste ':'Perdiste ')+run.count+' '+run.unit+'s seguidos. '+(run.side==='me'?'Sostén el patrón que te funciona.':'Recupera margen y juega una pelota más.');
+}
+for(const [id,side] of [['pointMe','me'],['pointRival','rival']])get(id).onclick=()=>{
+ const match=active();
+ if(!match.pointTracking)match.manualPoints=[];
+ match.pointTracking=true;
+ (match.manualPoints??=[]).push(side);
+ save();renderScore();
+};
+get('pointUndo').onclick=()=>{active().manualPoints?.pop();save();renderScore();};
 function openFeel() {
   active().breathEnd = null;
   get('feelForm').reset();
@@ -238,8 +276,11 @@ get('feelForm').onsubmit = event => {
   get('adviceHorizon').textContent = observation.unit==='puntos'?'Próximos puntos':'Próximos dos games';
   get('adviceBasis').textContent = [basis,pattern && readingLabel('rivalPattern',pattern)].filter(Boolean).join(' · ');
   save();
-  get('mainTip').textContent = tip;
-  get('otherTip').textContent = alternative;
+  renderPlan('mainTip',tip);
+  renderPlan('otherTip',alternative);
+  get('momentum').textContent=describeRun(match);
+  match.recommendations.at(-1).momentum=get('momentum').textContent;
+
   match.lastFeelings={levels:{...match.feelingDraft.levels},moments:{...match.feelingDraft.moments}};
   delete match.feelingDraft;save();
   show('advice');
@@ -325,7 +366,7 @@ function report(match) {
   if (!observations.length) context.push('Sin observaciones durante el partido.');
   section('Diagnóstico por tramos',context);
   if(match.recommendations?.length) section('Consignas del partido',match.recommendations.flatMap(item=>[
-    'Min '+item.minute+' · Set '+item.set+' · '+item.basis,
+    'Min '+item.minute+' · Set '+item.set+' · '+item.basis+(item.momentum?' · '+item.momentum:''),
     'Sirviendo · '+item.tip,
     'Recibiendo · '+item.alternative
   ]));
@@ -394,10 +435,10 @@ function renderFeelings(id,alertId,initial={}) {
    const buttons=labels.map((label,index)=>{
     const n=index+1,button=document.createElement('button');button.type='button';button.className='level';
     button.textContent=n+' · '+label;button.setAttribute('aria-label',title+' '+n+' '+label);
-    button.onclick=()=>{pending[key]=n;refresh();};
+    button.onclick=()=>{if(quick)commit([[key,n]]);else{pending[key]=n;refresh();}};
     row.append(button);return button;
    });
-   skip.onclick=()=>{pending[key]=0;refresh();};
+   skip.onclick=()=>{if(quick)commit([[key,0]]);else{pending[key]=0;refresh();}};
    field.append(legend,input,row,state,skip);panel.append(field);cards.push({key,input,state,buttons,group:i,field});
   }
  }
@@ -406,6 +447,7 @@ function renderFeelings(id,alertId,initial={}) {
   for(const key of Object.keys(pending))delete pending[key];
   commit(feelings.filter(([,key])=>!Object.hasOwn(chosen,key)).map(([,key])=>[key,0]));
  };
+ if(quick){panels[0].tab.onclick();const hint=document.createElement('p');hint.textContent='Un toque guarda. Cambia solo lo necesario o ve directo a la consigna.';root.prepend(hint);}
  refresh();
 }
 function readingLabel(name,value) {

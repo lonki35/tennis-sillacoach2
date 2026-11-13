@@ -13,7 +13,7 @@
 <section id="stats" hidden><h2>Estadística</h2><div class="history-scroll" tabindex="0" role="region" aria-label="Estadística de partidos"><table class="history-table stats-table"><thead><tr><th scope="col">Indicador</th><th scope="col">Total</th><th scope="col">Ganados</th><th scope="col">Perdidos</th><th scope="col">Rendimiento</th></tr></thead><tbody id="statsRows"></tbody></table></div><p id="statsNote" class="muted"></p></section><section id="player" hidden><h2>Datos del jugador</h2><img id="playerPhoto" hidden alt="Foto del jugador" style="width:96px;height:96px;object-fit:cover;border-radius:50%"><form id="playerForm"><label>Nombre<input class="edit-field" name="name" required maxlength="100"></label><label>Foto<input class="edit-field" name="photo" type="file" accept="image/*"></label><label>Edad<input class="edit-field" name="age" type="number" min="1" max="120"></label><label>Mano dominante<select name="hand"><option>Diestro</option><option>Zurdo</option></select></label><label>Revés<select name="backhand"><option>A una mano</option><option>A dos manos</option><option>Mixto</option></select></label><label>Uso del slice<select name="slice"><option>Bajo</option><option>Medio</option><option>Alto</option></select></label><button class="primary">GUARDAR PERFIL</button></form></section><section id="rivals" hidden><h2>Rivales</h2><form id="rivalForm"><label>Nombre<input class="edit-field" name="name" required maxlength="100"></label><label>Edad aproximada<input class="edit-field" name="age" type="number" min="1" max="120"></label><div id="rivalTechnical"></div><button class="primary">GUARDAR RIVAL</button><button type="button" id="newRival" class="wide">NUEVO RIVAL</button></form><div id="rivalList"></div></section><section id="setup"><h2>Antes de jugar</h2><form id="setupForm"><fieldset><legend>Datos del rival</legend>
 <label>Rival registrado<select class="edit-field" id="rivalSelect" name="rivalId" required></select></label></fieldset>
 
-<label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option>Ranking</option></select></label>
+<label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option selected>Ranking</option></select></label>
 <label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta cuatro</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label><label><input type="checkbox" name="goal" value="Probar más slices"> Probar más slices</label><label><input type="checkbox" name="goal" value="Jugar a devolver más"> Jugar a devolver más</label><label><input type="checkbox" name="goal" value="Probar passing shots"> Probar passing shots</label><label><input type="checkbox" name="goal" value="Probar más globos"> Probar más globos</label><label><input type="checkbox" name="goal" value="Probar los paralelos"> Probar los paralelos</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><button id="addPast" class="primary">Agregar partido anterior</button><label>Buscar por rival<select id="historyRival" class="edit-field"></select></label><p id="h2h" role="status"></p><div id="history"></div></section>
 <section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button id="confirmSet" class="primary" hidden>GUARDAR RESULTADO DEL SET</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
@@ -554,7 +554,7 @@ function openHistory() {
 get("addPast").onclick=()=>openEdit(null);
 function openEdit(match) {
  const adding=!match;
- if(adding)match={number:data.next,start:Date.now(),end:Date.now(),sets:[],result:"Inconcluso",observations:[],assessment:[]};
+ if(adding)match={number:data.next,start:Date.now(),end:Date.now(),kind:'Ranking',sets:[],result:"Inconcluso",observations:[],assessment:[]};
  get("historyTitle").textContent=adding?"Agregar partido anterior":"Editar partido";
  get("historyForm").querySelector("button.primary").textContent=adding?"GUARDAR PARTIDO":"GUARDAR EDICIÓN";
  const root=get('historyFields');root.replaceChildren();get('editError').textContent='';
@@ -562,8 +562,9 @@ function openEdit(match) {
  const local=new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,10);
  const original=formatSets(match)==='Sin marcador'?'':formatSets(match);
  const fields=[['date','Fecha','date',local],['rivalName','Rival','text',match.rivalName],['kind','Tipo de partido',['Sin informar','Amistoso','Liga','Ranking'],match.kind],['score','Marcador Yo/Rival','text',original]];
- if(adding)fields.push(['format','Tercer set',['Normal','Súper tie-break'],'Normal'],['duration','Duración en minutos (opcional)','number',null],['incomplete','Estado',['Terminado','Inconcluso'],'Terminado']);
+ if(adding)fields.push(['format','Tercer set',['Normal','Súper tie-break'],'Normal'],['incomplete','Estado',['Terminado','Inconcluso'],'Terminado']);
  fields.splice(1,0,['rivalId','Rival registrado',[['','Ingresar nombre manualmente'],...[...(data.rivals??[])].sort((a,b)=>a.name.localeCompare(b.name,'es')).map(rival=>[rival.id,rival.name])],(data.rivals??[]).find(rival=>rival.id===match.rival?.id&&rivalHistoryKey({rivalName:rival.name})===rivalHistoryKey(match))?.id??'']);
+ fields.push(['duration','Duración (HH/MM/SS)','text',adding||match.durationUnknown||!Number.isFinite(match.end)?'':clock(elapsed(match),true).replaceAll(':','/')]);
  fields.push(['finalNote','Apreciación personal (opcional)','textarea',match.finalNote]);
  for(const [name,title,type,value] of fields){
   const label=document.createElement('label');label.textContent=title;
@@ -601,11 +602,11 @@ function openEdit(match) {
     try {sets=parseSets(normalized,format,false);result=sets.filter(set=>SillaScore.winner(set)==='me').length===2?'Ganado':'Perdido';}
     catch(error){if(adding?form.incomplete!=='Inconcluso':match.result!=='Inconcluso')throw error;sets=parseSets(normalized,format,true);result='Inconcluso';}
    }
-   const duration=adding&&form.duration!==''?Number(form.duration)*60000:elapsed(match);
-   if(!Number.isSafeInteger(duration)||duration<0)throw Error('Revisa la duración.');
+   const duration=parseDuration(form.duration);
+   if(!Number.isSafeInteger(start+(duration??0)))throw Error('Revisa la duración.');
    const selectedRival=(data.rivals??[]).find(item=>item.id===form.rivalId);
-   const updated={...match,rival:selectedRival?{...selectedRival}:rivalName===match.rivalName?match.rival:null,start,end:start+duration,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
-     ...(adding?{manual:true,durationUnknown:form.duration==='',format:form.format==='Súper tie-break'?'super':'normal'}:{})};
+   const updated={...match,rival:selectedRival?{...selectedRival}:rivalName===match.rivalName?match.rival:null,start,end:start+(duration??0),durationUnknown:duration===null,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
+     ...(adding?{manual:true,format:form.format==='Súper tie-break'?'super':'normal'}:{})};
    updated.earned=competitionPoints(updated);
    updated.finalSummary=matchReview(updated);
    if(adding){
@@ -670,34 +671,45 @@ rivalForm.onsubmit=event=>{
 };
 refreshRivals();
 
+function parseDuration(input){
+ const text=input.trim();
+ if(!text)return null;
+ const parts=text.match(/^(\d{2,})([/:])([0-5]\d)\2([0-5]\d)$/);
+ if(!parts)throw Error('Ingresa la duración en HH/MM/SS, por ejemplo 01/25/30.');
+ const ms=(Number(parts[1])*3600+Number(parts[3])*60+Number(parts[4]))*1000;
+ if(!Number.isSafeInteger(ms))throw Error('La duración está fuera de rango.');
+ return ms;
+}
 function statistics(history) {
  const matches=[history.length,0,0], sets=[0,0,0], games=[0,0,0];
  let ms=0,missing=0;
+ const timed=[0,0,0];
  for(const match of history){
   if(match.result==='Ganado')matches[1]++;
   if(match.result==='Perdido')matches[2]++;
   if(match.durationUnknown||!Number.isFinite(match.start)||!Number.isFinite(match.end))missing++;
-  else ms+=elapsed(match);
+  const hasDuration=!(match.durationUnknown||!Number.isFinite(match.start)||!Number.isFinite(match.end));
+  if(hasDuration){ms+=elapsed(match);timed[0]++;}
   for(const set of match.sets??[]){
    const winner=SillaScore.winner(set);
-   if(winner){sets[0]++;sets[winner==='me'?1:2]++;}
-   if(!set.super){games[1]+=set.me;games[2]+=set.rival;}
+   if(winner){if(hasDuration)timed[1]++;sets[0]++;sets[winner==='me'?1:2]++;}
+   if(!set.super){if(hasDuration)timed[2]+=set.me+set.rival;games[1]+=set.me;games[2]+=set.rival;}
   }
  }
  games[0]=games[1]+games[2];
- return {matches,sets,games,ms,missing};
+ return {matches,sets,games,ms,missing,timed};
 }
 function performance([total,won]){return total?Math.ceil(won*100/total)+'%':'—';}
 get('tabStats').onclick=()=>{
- const {matches,sets,games,ms,missing}=statistics(data.history);
+ const {matches,sets,games,ms,missing,timed}=statistics(data.history);
  const rows=get('statsRows');rows.replaceChildren();
- for(const [label,values] of [['Partidos',[...matches,performance(matches)]],['Sets',[...sets,performance(sets)]],['Games',[...games,performance(games)]],['Total tiempo jugado',[clock(ms,true),'','','']]]){
+ for(const [label,values] of [['Partidos',[...matches,performance(matches)]],['Sets',[...sets,performance(sets)]],['Games',[...games,performance(games)]],['Total tiempo jugado',[clock(ms,true),'','','']],...['partido','set','game'].map((unit,i)=>['Duración promedio por '+unit,[timed[i]?clock(Math.round(ms/timed[i]/1000)*1000,true):'—','','','']])]){
   const row=rows.insertRow(), title=document.createElement('th');
   title.scope='row';title.textContent=label;row.append(title);
   for(const value of values)row.insertCell().textContent=value;
  }
  const undecided=matches[0]-matches[1]-matches[2];
- get('statsNote').textContent=[undecided?undecided+' partido(s) sin ganador incluidos en el total.':'',missing?missing+' partido(s) sin duración registrada.':''].filter(Boolean).join(' ');
+ get('statsNote').textContent=[undecided?undecided+' partido(s) sin ganador incluidos en el total.':'',missing?missing+' partido(s) sin duración registrada, excluidos de los promedios.':''].filter(Boolean).join(' ');
  show('stats');
 };
 const playerForm=get('playerForm');

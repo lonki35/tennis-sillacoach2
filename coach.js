@@ -21,7 +21,7 @@ function pointPlans(match, reading, ms) {
  const start=blocked?'Respira y saca a zona amplia.':protect?'Saca con margen.':rivalReturning==='direction'?target:rivalReturning==='deep'?'Saca al cuerpo.':rivalReturning==='short'?'Repite el saque que lo deja corto.':'Saca con margen.';
  const build=net?'Profundo si espera, bajo si sube.':short?'Profundo para impedir la subida.':unstable?'Cruzado alto, lejos de las líneas.':tired?'Juega profundo y recupera posición.':protect?'Cruzado profundo con margen.':'Abre con un cruzado profundo.';
  const returnStart=rivalServing==='strong'?'Bloquea profundo al centro.':blocked?'Respira y devuelve al centro.':rivalServing==='second'&&!protect?'Entra al segundo y devuelve profundo.':protect?'Devuelve con margen al centro.':'Devuelve profundo a zona amplia.';
- const returnBuild=net?'Si sube, juega a sus pies.':unstable?'Cruzado alto, lejos de las líneas.':short||tired?'Mantén la pelota profunda.':rivalPattern==='baseline'?'Muévelo con un cruzado profundo.':'Construye cruzado.';
+ const returnBuild=net?'Si sube, juega a sus pies.':unstable?'Cruzado alto, lejos de las líneas.':short||tired?'Mantén la pelota profunda.':rivalPattern==='baseline'?'Muévelo con un cruzado profundo.':match.rival?.slice==='high'?'Flexiona ante el slice bajo.':match.rival?.backhand==='one'?'Prueba altura al revés.':'Construye cruzado.';
  const close=tired&&ms>=4500000?'Corta y cómodo: acorta el punto.':unstable||blocked?'Ataca solo una corta clara.':protect?'Si dudas, repite cruzado.':'Corta y cómodo: ataca. Si no, cruzado.';
  const returnClose=net&&!protect?'Volea corta: pasa al espacio.':close;
  const plan=(a,b,c)=>'Inicio · '+a+'\nConstrucción · '+b+'\nCierre · '+c;

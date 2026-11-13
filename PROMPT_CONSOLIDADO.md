@@ -41,3 +41,4 @@ Ranking y Liga suman 1 punto por partido guardado más 1 por cada set ganado, in
 Una selección por grupo, de 1 favorable a 3 menos favorable. El cansancio ajusta el esfuerzo, el estado mental la rutina y el margen, y el estado técnico el riesgo del golpe. Mantén los recuadros Inicio, Construcción y Cierre para saque y devolución.
 
 El descanso entre sets dura 120 segundos tras confirmar el set, si queda otro por jugar. Dentro de un set dura 90 segundos.
+Rivales: registra nombre y, opcionalmente, edad y datos técnicos. Selecciona el perfil en Partido. Las observaciones del encuentro tienen prioridad sobre el perfil.

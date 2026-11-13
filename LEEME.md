@@ -39,3 +39,5 @@ Ranking y Liga suman 1 punto por partido guardado más 1 por cada set ganado, in
 
 El descanso entre sets dura 120 segundos tras confirmar el set, si queda otro por jugar. Dentro de un set dura 90 segundos.
 Historial: el partido más antiguo recibe el número 1. Al agregar, editar o eliminar, la numeración visible se recalcula automáticamente por fecha.
+Estadística: acumula los partidos del historial. Incluye sets completos y games anotados. El súper tie-break cuenta como set y sus puntos se excluyen de los games. Se suma la duración registrada.
+Rivales: registra nombre y, opcionalmente, edad y datos técnicos. Selecciona el perfil en Partido. Las observaciones del encuentro tienen prioridad sobre el perfil.

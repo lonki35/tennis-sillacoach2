@@ -30,3 +30,6 @@ Prueba automatizada en Chrome: guardado sin conexión, validación y fallo de gu
 
 ## Última actualización
 Abre Físico, Mental o Técnico, elige tus niveles y vuelve a tocar el encabezado del grupo para guardar. Al siguiente descanso se recuperan tus selecciones. Historial muestra Duración. Usa Probar pitido antes del primer descanso y verifica el volumen multimedia del teléfono.
+
+## Historial manual
+Usa Agregar partido anterior. Ingresa fecha, rival y marcador Yo/Rival. Para un súper tie-break, elige ese formato y escribe, por ejemplo, 3/6 - 6/4 - 10-8. Puedes dejar en blanco puntaje, duración y apreciación personal. Toca el marcador para abrir el resumen final. Actualiza los archivos en el mismo repositorio sin borrar los datos del navegador.

@@ -17,13 +17,13 @@
 <label>Categoría del rival<select name="category"><option>Sin informar</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label></fieldset>
 <label>Mi edad<input name="age" type="number" min="1" max="120" step="1" inputmode="numeric"></label>
 <label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option>Ranking</option></select></label>
-<label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><div id="history"></div></section>
+<label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta dos</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><button id="addPast" class="primary">Agregar partido anterior</button><div id="history"></div></section>
 <section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
 <section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button" hidden>Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER CONSIGNA</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="advice" hidden><h2 id="adviceHorizon">Próximos dos games</h2><p id="momentum" role="status"></p><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><div id="mainTip"></div><h3>Recibiendo</h3><div id="otherTip"></div></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
-<section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><label>Puntaje obtenido por mí<input name="earned" type="number" min="0" max="9007199254740991" step="1" inputmode="numeric" required value="0"></label><details><summary>Sensaciones al finalizar</summary><div id="closingFeelings"></div></details><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
-<section id="historyEdit" hidden><h2>Editar partido</h2><form id="historyForm"><div id="historyFields"></div><p id="editError" role="alert"></p><button class="primary">GUARDAR EDICIÓN</button></form><button class="wide" id="cancelEdit">CANCELAR</button></section><section id="report" hidden><h2>Informe del partido</h2><div id="reportBody"></div><button class="primary" id="newMatch">VOLVER AL INICIO</button></section>
+<section id="close" hidden><h2>Finalizar partido</h2><form id="closeForm"><p id="closeStatus"></p><label>Apreciación personal (opcional)<textarea class="edit-field" name="finalNote"></textarea></label><label>Puntaje obtenido por mí<input name="earned" type="number" min="0" max="9007199254740991" step="1" inputmode="numeric" required value="0"></label><details><summary>Sensaciones al finalizar</summary><div id="closingFeelings"></div></details><div id="assessment"></div><button class="primary">CONFIRMAR Y VER INFORME</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
+<section id="historyEdit" hidden><h2 id="historyTitle">Editar partido</h2><form id="historyForm"><div id="historyFields"></div><p id="editError" role="alert"></p><button class="primary">GUARDAR EDICIÓN</button></form><button class="wide" id="cancelEdit">CANCELAR</button></section><section id="report" hidden><h2>Informe del partido</h2><div id="reportBody"></div><button class="primary" id="newMatch">VOLVER AL INICIO</button></section>
 </main><script src="./score.js"></script><script src="./coach.js"></script><script>
 'use strict';
 const get = id => document.getElementById(id);
@@ -309,16 +309,28 @@ get('closeForm').onsubmit = event => {
   const form = new FormData(event.currentTarget);
   const earned=Number(form.get('earned'));
   if (!Number.isSafeInteger(earned)||earned<0) return;
-  const finished = {...match,earned,observations:[...match.observations]};
+  const finished = {...match,earned,finalNote:String(form.get("finalNote")??"").trim(),observations:[...match.observations]};
   SillaScore.close(finished,Date.now());
   const levels=readFeelings(Object.fromEntries(form));
   const last=score();
   if(Object.keys(levels).length) finished.observations.push({closing:true,levels,minute:Math.floor(elapsed(finished)/60000),set:match.set+1,score:[last.me,last.rival],scoreLabel:SillaScore.label(last)});
+  finished.finalSummary=matchReview(finished);
   finished.assessment = match.goals.map((goal,index)=>[goal,form.get('goal'+index)]);
   const previous = data;
   data = {...data,active:null,history:[finished,...data.history.filter(item=>item.number!==finished.number)]};
   if (!save()) { data=previous; return; } get('setupForm').reset(); get('setupForm').onchange(); get('notice').textContent=''; report(finished);
 };
+function matchReview(match){
+ const sets=SillaScore.played(match);
+ const lead=sets.map(set=>SillaScore.winner(set));
+ let appreciation='El marcador permite revisar los sets jugados.';
+ if(match.result==='Inconcluso')appreciation='Partido inconcluso. El marcador refleja el avance registrado.';
+ else if(lead.length===3&&lead[0]!==lead[2])appreciation=lead[2]==='me'?'Remontaste tras perder el primer set y ganaste el tercer set.':'Ganaste el primer set, pero el rival se llevó los dos siguientes.';
+ else if(lead.length===3)appreciation='El partido se decidió en el tercer set.';
+ else if(lead.length===2&&lead[0]&&lead[0]===lead[1])appreciation=lead[0]==='me'?'Sostuviste la ventaja en ambos sets.':'El rival ganó ambos sets.';
+ const last=match.recommendations?.at(-1)?.momentum;
+ return ['Marcador final · '+formatSets(match)+'. '+match.result+'.',appreciation,...(last&&!last.includes('sin confirmar')?['Última lectura registrada · '+last]:[])];
+}
 function report(match) {
   const body = get('reportBody');
   body.replaceChildren();
@@ -339,7 +351,7 @@ function report(match) {
   section('Resultado y duración',[
     summary(match),
     rivalProfile(match),
-    'Duración '+clock(elapsed(match),true),
+    'Duración '+(match.durationUnknown?'sin registrar':clock(elapsed(match),true)),
     'Formato del tercero · '+(match.format==='super'?'Súper tie-break a 10 puntos':match.format==='normal'?'Set normal':'Sin informar')
   ]);
   const context = [];
@@ -364,6 +376,7 @@ function report(match) {
     }
   }
   if (!observations.length) context.push('Sin observaciones durante el partido.');
+  section('Resumen y apreciación final',[...(match.finalSummary??matchReview(match)),...(match.finalNote?[match.finalNote]:[])]);
   section('Diagnóstico por tramos',context);
   if(match.recommendations?.length) section('Consignas del partido',match.recommendations.flatMap(item=>[
     'Min '+item.minute+' · Set '+item.set+' · '+item.basis+(item.momentum?' · '+item.momentum:''),
@@ -487,7 +500,7 @@ function openHistory() {
     for(const value of [data.history.length-i,new Date(match.start).toLocaleDateString('es-CL',{day:'2-digit',month:'2-digit',year:'numeric'}),match.rivalName||'No registrado',match.kind||'Sin informar',match.earned??'No registrado']) row.insertCell().textContent=value;
     const result=document.createElement('button');result.textContent=formatSets(match);result.onclick=()=>report(match);
     result.setAttribute('aria-label','Ver detalle del resultado '+formatSets(match));row.insertCell().append(result);
-    row.insertCell().textContent=clock(elapsed(match),true);
+    row.insertCell().textContent=match.durationUnknown?'Sin registrar':clock(elapsed(match),true);
     const actions=document.createElement('div');actions.className='row';
     const edit=document.createElement('button');edit.textContent='Editar';edit.onclick=()=>openEdit(match);
     const remove=document.createElement('button');remove.textContent='Eliminar';remove.onclick=()=>{
@@ -497,21 +510,28 @@ function openHistory() {
   }
   wrapper.append(table);history.append(wrapper);show('historyScreen');
 }
+get("addPast").onclick=()=>openEdit(null);
 function openEdit(match) {
+ const adding=!match;
+ if(adding)match={number:data.next,start:Date.now(),end:Date.now(),sets:[],result:"Inconcluso",observations:[],assessment:[]};
+ get("historyTitle").textContent=adding?"Agregar partido anterior":"Editar partido";
+ get("historyForm").querySelector("button.primary").textContent=adding?"GUARDAR PARTIDO":"GUARDAR EDICIÓN";
  const root=get('historyFields');root.replaceChildren();get('editError').textContent='';
  const date=new Date(match.start);
  const local=new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,10);
  const original=formatSets(match)==='Sin marcador'?'':formatSets(match);
  const fields=[['date','Fecha','date',local],['rivalName','Rival','text',match.rivalName],['kind','Tipo de partido',['Sin informar','Amistoso','Liga','Ranking'],match.kind],['earned','Puntaje propio','number',match.earned],['score','Marcador Yo/Rival','text',original]];
+ if(adding)fields.push(['format','Tercer set',['Normal','Súper tie-break'],'Normal'],['duration','Duración en minutos (opcional)','number',null],['incomplete','Estado',['Terminado','Inconcluso'],'Terminado']);
+ fields.push(['finalNote','Apreciación personal (opcional)','textarea',match.finalNote]);
  for(const [name,title,type,value] of fields){
   const label=document.createElement('label');label.textContent=title;
-  const input=document.createElement(Array.isArray(type)?'select':'input');
+  const input=document.createElement(Array.isArray(type)?'select':type==='textarea'?'textarea':'input');
   input.name=name;input.className='edit-field';
   if(Array.isArray(type))for(const option of type)input.add(new Option(option));
-  else input.type=type;
+  else if(type!=='textarea')input.type=type;
   if(value!=null)input.value=value;
   if(name==='earned'){input.min='0';input.step='1';}
-  if(name==='date')input.required=true;
+  if(name==='date'||(adding&&name==='rivalName'))input.required=true;
   label.append(input);root.append(label);
  }
  show('historyEdit');
@@ -522,10 +542,10 @@ function openEdit(match) {
    const start=form.date===local?match.start:new Date(form.date+'T00:00:00').setHours(date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds());
    const earned=form.earned===''?null:Number(form.earned);
    const rivalName=form.rivalName.trim();
-   if(!Number.isFinite(start)||(earned!==null&&(!Number.isSafeInteger(earned)||earned<0))||(!rivalName&&match.rivalName))throw Error('Revisa la fecha, el rival y el puntaje.');
+   if(!Number.isFinite(start)||(earned!==null&&(!Number.isSafeInteger(earned)||earned<0))||(!rivalName&&(adding||match.rivalName)))throw Error('Revisa la fecha, el rival y el puntaje.');
    let sets=match.sets,result=match.result;
-   if(form.score.trim()!==original) {
-    const format=match.format==='super'||match.sets[2]?.super?'super':'normal';
+   if(adding||form.score.trim()!==original) {
+    const format=form.format==='Súper tie-break'||match.format==='super'||match.sets[2]?.super?'super':'normal';
     const tokens=form.score.trim().split(/\s+-\s+/).map((token,i)=>{
      if(i===2&&format==='super')return token.replace(/^(\d+)\s*-\s*(\d+)$/,'$1/$2');
      const previous=match.sets[i];
@@ -533,9 +553,19 @@ function openEdit(match) {
     });
     const normalized=tokens.join(' - ');
     try {sets=parseSets(normalized,format,false);result=sets.filter(set=>SillaScore.winner(set)==='me').length===2?'Ganado':'Perdido';}
-    catch(error){if(match.result!=='Inconcluso')throw error;sets=parseSets(normalized,format,true);result='Inconcluso';}
+    catch(error){if(adding?form.incomplete!=='Inconcluso':match.result!=='Inconcluso')throw error;sets=parseSets(normalized,format,true);result='Inconcluso';}
    }
-   const updated={...match,start,end:start+elapsed(match),earned,rivalName,kind:form.kind,sets,result};
+   const duration=adding&&form.duration!==''?Number(form.duration)*60000:elapsed(match);
+   if(!Number.isSafeInteger(duration)||duration<0)throw Error('Revisa la duración.');
+   const updated={...match,start,end:start+duration,earned,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
+     ...(adding?{manual:true,durationUnknown:form.duration==='',format:form.format==='Súper tie-break'?'super':'normal'}:{})};
+   updated.finalSummary=matchReview(updated);
+   if(adding){
+    const previous=data;
+    data={...data,next:data.next+1,history:[updated,...data.history]};
+    if(!save()){data=previous;throw Error('No se pudo guardar. Vuelve a intentar.');}
+    openHistory();get('notice').textContent='Partido guardado';return;
+   }
    if(!writeHistory(data.history.map(item=>item.number===match.number?updated:item)))throw Error('No se pudo guardar. Vuelve a intentar.');
    openHistory();get('notice').textContent='Cambios guardados';
   }catch(error){get('editError').textContent=error.message;}

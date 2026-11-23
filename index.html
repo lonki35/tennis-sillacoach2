@@ -375,6 +375,7 @@ get('closeForm').onsubmit = event => {
   const last=score();
   if(Object.keys(levels).length) finished.observations.push({closing:true,groupedFeelings:true,levels,minute:Math.floor(elapsed(finished)/60000),set:match.set+1,score:[last.me,last.rival],scoreLabel:SillaScore.label(last)});
   finished.finalSummary=matchReview(finished);
+  finished.shotAnalysis=shotAnalysis(finished);
   finished.assessment = match.goals.map((goal,index)=>[goal,form.get('goal'+index)]);
   const previous = data;
   data = {...data,active:null,history:[finished,...data.history.filter(item=>item.number!==finished.number)]};
@@ -414,6 +415,26 @@ function matchReview(match){
  }
  const last=match.recommendations?.at(-1)?.momentum;
  return ['Marcador final · '+formatSets(match)+'. '+match.result+'.',appreciation,...context,...(last&&!last.includes('sin confirmar')?['Última lectura registrada · '+last]:[])];
+}
+function shotAnalysis(match){
+ const entries=(match.shotsBySet??[]).flatMap((item,index)=>item?[{...item,index}]:[]);
+ if(!entries.length)return ['Sin golpes registrados.'];
+ const lines=entries.map(item=>'Set '+(item.index+1)+' · Winners '+item.winners+' · Errores no forzados '+item.errors+' · Balance '+(item.winners-item.errors)+'.');
+ for(let i=1;i<entries.length;i++){
+  const previous=entries[i-1],current=entries[i];
+  for(const [key,label] of [['winners','Winners'],['errors','Errores no forzados']]){
+   const delta=current[key]-previous[key];
+   lines.push('Set '+(previous.index+1)+' → '+(current.index+1)+' · '+label+' '+(delta>0?'aumentaron en '+delta:delta<0?'bajaron en '+(-delta):'se mantuvieron')+'.');
+  }
+ }
+ const winners=entries.reduce((sum,item)=>sum+item.winners,0),errors=entries.reduce((sum,item)=>sum+item.errors,0);
+ lines.push('Total · Winners '+winners+' · Errores no forzados '+errors+' · Balance '+(winners-errors)+'.');
+ if(entries.length>1){
+  const first=entries[0],last=entries.at(-1),w=last.winners-first.winners,e=last.errors-first.errors;
+  lines.push(w>=0&&e<0?'Cerraste con igual o mayor cantidad de winners y menos errores registrados.':w>0&&e>0?'Cerraste con más winners y también más errores: aumentó la producción ofensiva junto con el costo en fallos.':w<0&&e>0?'Cerraste con menos winners y más errores registrados. Prioriza control antes de aumentar el riesgo.':w<0&&e<=0?'Cerraste con menos winners y una cantidad igual o menor de errores registrados.':'El cierre mantuvo o mejoró el balance entre winners y errores registrados.');
+ }
+ lines.push('La comparación usa cantidades registradas por set. Los sets pueden tener distinta duración y el desempate decisivo tiene menos puntos que un set normal.');
+ return lines;
 }
 function report(match) {
   const body = get('reportBody');
@@ -462,12 +483,7 @@ function report(match) {
   }
   if (!observations.length) context.push('Sin observaciones durante el partido.');
   section('Resumen y apreciación final',[...(match.finalSummary??matchReview(match)),...(match.finalNote?[match.finalNote]:[])]);
-  const shots=match.shotsBySet;
-  if(shots?.some(Boolean)){
-   const lines=shots.flatMap((item,index)=>item?['Set '+(index+1)+' · Winners '+item.winners+' · Errores no forzados '+item.errors]:[]);
-   const total=shots.reduce((sum,item)=>({winners:sum.winners+(item?.winners??0),errors:sum.errors+(item?.errors??0)}),{winners:0,errors:0});
-   section('Golpes registrados',[...lines,'Total · Winners '+total.winners+' · Errores no forzados '+total.errors]);
-  }
+  section('Golpes registrados y evolución',shotAnalysis(match));
   section('Diagnóstico por tramos',context);
   if(match.recommendations?.length) section('Recomendaciones de Juego',match.recommendations.flatMap(item=>[
     'Min '+item.minute+' · Set '+item.set+' · '+item.basis+(item.momentum?' · '+item.momentum:''),
@@ -612,7 +628,8 @@ function openHistory() {
     const remove=document.createElement('button');remove.textContent='Eliminar';remove.onclick=()=>{
       if(window.confirm('¿Eliminar este partido del historial?')&&writeHistory(data.history.filter(item=>item.number!==match.number)))openHistory();
     };
-    actions.append(edit,remove);row.insertCell().append(actions);
+    const view=document.createElement('button');view.textContent='Ver Resumen';view.onclick=()=>report(match);
+    actions.append(view,edit,remove);row.insertCell().append(actions);
   }
   wrapper.append(table);history.append(wrapper);show('historyScreen');
 }
@@ -682,6 +699,7 @@ function openEdit(match) {
      ...(adding?{manual:true}:{})};
    updated.earned=competitionPoints(updated);
    updated.finalSummary=matchReview(updated);
+   updated.shotAnalysis=shotAnalysis(updated);
    if(adding){
     const previous=data;
     data={...data,next:data.next+1,history:[updated,...data.history]};

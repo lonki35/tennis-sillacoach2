@@ -1,5 +1,5 @@
 const prefix = 'sillacoach-' + self.registration.scope + '-';
-const version = prefix + '30';
+const version = prefix + '31';
 const files = ['./index.html', './score.js', './coach.js', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(version).then(cache => cache.addAll(files.map(file => new Request(file, {cache: "reload"})))).then(() => self.skipWaiting()));

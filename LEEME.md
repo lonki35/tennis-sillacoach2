@@ -46,3 +46,4 @@ Al confirmar el segundo set con empate 1–1, selecciona Set normal, Tie-break (
 Iniciar descanso pausa el tiempo efectivo y cambia a Iniciar juego. Al volver, toca Iniciar juego para descontar el descanso realmente utilizado. Al vencer el aviso, pulsa Iniciar juego cuando retomes. Los registros anteriores conservan su duración disponible.
 Historial: elige Desde y Hasta por mes/año. Ranking incluye Ranking y Liga. Liga solo Liga. El filtro por rival y el H2H se aplican al mismo período. El período inicial abarca el historial disponible hasta el mes actual.
 Bajo el marcador están Winners y Errores no forzados del jugador, con contador y botones + y −. Cada set conserva sus valores y el siguiente empieza en cero. El detalle final incluye desglose y totales.
+Ver Resumen abre el informe guardado del partido, con golpes por set, cambios entre sets y balance de winners menos errores. Los partidos previos conservan sus datos y se analizan al abrirlos.

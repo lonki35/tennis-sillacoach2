@@ -44,3 +44,4 @@ Rivales: registra nombre y, opcionalmente, edad y datos técnicos. Selecciona el
 Duración editable en HH/MM/SS. Los promedios dividen el tiempo registrado por los partidos, sets completos o games de esos mismos registros.
 Al confirmar el segundo set con empate 1–1, selecciona Set normal, Tie-break (7) o Súper tie-break (10). En Editar historial puedes cambiar el formato y corregir el marcador del tercero. Ambos desempates requieren dos puntos de diferencia.
 Iniciar descanso pausa el tiempo efectivo y cambia a Iniciar juego. Al volver, toca Iniciar juego para descontar el descanso realmente utilizado. Al vencer el aviso, pulsa Iniciar juego cuando retomes. Los registros anteriores conservan su duración disponible.
+Historial: elige Desde y Hasta por mes/año. Ranking incluye Ranking y Liga. Liga solo Liga. El filtro por rival y el H2H se aplican al mismo período. El período inicial abarca el historial disponible hasta el mes actual.

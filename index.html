@@ -601,7 +601,13 @@ function openEdit(match) {
    const rivalName=form.rivalName.trim();
    if(!Number.isFinite(start)||(!rivalName&&(adding||match.rivalName)))throw Error('Revisa la fecha, el rival y el puntaje.');
    let sets=match.sets,result=match.result;
-   const newFormat=form.format==='Súper tie-break'?'super':form.format==='Tie-break (7)'?'tie':'normal';
+   let newFormat=form.format==='Súper tie-break'?'super':form.format==='Tie-break (7)'?'tie':'normal';
+   const third=form.score.trim().split(/\s+-\s+/)[2]?.trim().match(/^(\d+)\s*[\/-]\s*(\d+)$/);
+   if(newFormat==='normal'&&third&&Math.max(Number(third[1]),Number(third[2]))>=10){
+    if(!window.confirm('El tercer resultado corresponde a puntos. ¿Guardar como Súper tie-break a 10?'))return;
+    newFormat='super';
+    event.currentTarget.elements.format.value='Súper tie-break';
+   }
    if(adding||form.score.trim()!==original||newFormat!==(match.format??'normal')) {
     const format=newFormat;
     const tokens=form.score.trim().split(/\s+-\s+/).map((token,i)=>{

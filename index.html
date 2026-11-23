@@ -33,7 +33,16 @@ try {
 } catch { get('notice').textContent = 'Se abrió una sesión nueva.'; }
 const active = () => data.active;
 const score = () => active().sets[active().set];
-const elapsed = (match, now = Date.now()) => Math.max(0,(match.end ?? now)-match.start);
+const elapsed = (match, now = Date.now()) => {
+ const end=match.end??now;
+ const current=match.restStarted!=null?Math.max(0,Math.min(end,match.restStopped??end)-match.restStarted):0;
+ return Math.max(0,end-match.start-(match.restTotal??0)-current);
+};
+function finishRest(match,now){
+ if(match.restStarted==null)return;
+ match.restTotal=(match.restTotal??0)+Math.max(0,Math.min(now,match.end??now)-match.restStarted);
+ match.restStarted=null;match.restEnd=null;match.breathEnd=null;match.setBreakFor=null;
+}
 function save() {
   try { localStorage.setItem(key, JSON.stringify(data)); return true; }
   catch { get('notice').textContent = 'El navegador no pudo guardar los datos. Puedes volver a intentar.'; }
@@ -62,7 +71,7 @@ function tick(now = Date.now()) {
   const remaining = match.restEnd === null ? restLength(match) : match.restEnd-now;
   updateRestAlert(match,now);
   get('restClock').textContent = clock(remaining);
-  get('rest').textContent = match.restEnd !== null && remaining > 0 ? 'REINICIAR DESCANSO' : restLength(match)===120000 && match.restEnd===null ? 'INICIAR DESCANSO DE SET · 2:00' : 'INICIAR DESCANSO';
+  get('rest').textContent = match.restStarted!=null ? 'INICIAR JUEGO' : 'INICIAR DESCANSO';
   if (!get('breath').hidden) {
     const left = match.breathEnd-now;
     if (left <= 0) openFeel();
@@ -112,6 +121,7 @@ for (const field of ['me','rival']) get(field+'Up').onclick = () => {
   const index=match.set;
   if(match.setBreakFor===index)delete match.setBreakFor;
   match.confirmSets=true;
+  finishRest(match,Date.now());
   SillaScore.add(match,field,Date.now());
   const played=match.sets[index];
   (match.progress??=[]).push({set:index,me:played.me,rival:played.rival});
@@ -169,13 +179,17 @@ function openMarker() {
   if (active().legacyManual) get('notice').textContent='El marcador manual anterior tiene un resultado fuera del formato automático. Puedes guardarlo como inconcluso.';
 }
 get('rest').onclick = () => {
+ const now=Date.now(),match=active();
+ const snapshot={...match};
+ if(match.restStarted!=null)finishRest(match,now);
+ else {
   prepareRestSound();
-  const now=Date.now();
-  const match=active();
-  const length=match.restEnd>now ? (match.restDuration??90000) : match.restEnd===null ? restLength(match) : 90000;
-  Object.assign(match,{restEnd:now+length,restDuration:length,offered:false,breathEnd:null});
+  const length=restLength(match);
+  Object.assign(match,{restStarted:now,restEnd:now+length,restDuration:length,offered:false,breathEnd:null});
   lastRestTick=now;
-  save(); tick();
+ }
+ if(!save())Object.assign(match,snapshot);
+ tick();
 };
 function critical({me,rival,tie,points,super:isSuper}) {
   return !!points || isSuper || tie || (me===6 && rival===6) || (me<rival && (rival-me>=3 || rival===5 || (me===5 && rival===6)));
@@ -622,7 +636,7 @@ function openEdit(match) {
    const duration=parseDuration(form.duration);
    if(!Number.isSafeInteger(start+(duration??0)))throw Error('Revisa la duración.');
    const selectedRival=(data.rivals??[]).find(item=>item.id===form.rivalId);
-   const updated={...match,format:newFormat,rival:selectedRival?{...selectedRival}:rivalName===match.rivalName?match.rival:null,start,end:start+(duration??0),durationUnknown:duration===null,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
+   const updated={...match,format:newFormat,rival:selectedRival?{...selectedRival}:rivalName===match.rivalName?match.rival:null,start,end:start+(duration??0),restTotal:0,restStarted:null,restStopped:null,durationUnknown:duration===null,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
      ...(adding?{manual:true}:{})};
    updated.earned=competitionPoints(updated);
    updated.finalSummary=matchReview(updated);

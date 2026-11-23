@@ -28,7 +28,7 @@ function pointPlans(match, reading, ms) {
  return {serving:plan(start,build,close),receiving:plan(returnStart,returnBuild,returnClose)};
 }
 function formatSets(match) {
- return SillaScore.played(match).map(set=>set.me+(set.super?'-':'/')+set.rival).join(' - ')||'Sin marcador';
+ return SillaScore.played(match).map(set=>set.me+(set.super||set.tieOnly?'-':'/')+set.rival).join(' - ')||'Sin marcador';
 }
 function winnerName(match) {
  if(match.result==='Ganado') return 'Yo';
@@ -46,7 +46,8 @@ function parseSets(value,format,unfinished) {
   if(!Number.isSafeInteger(set.me)||!Number.isSafeInteger(set.rival)) throw Error('Puntaje fuera de rango.');
   if(index===2 && (wins.me!==1||wins.rival!==1)) throw Error('El tercer set exige un empate 1–1.');
   if(index===2 && format==='super') set.super=true;
-  if(!set.super && (Math.max(set.me,set.rival)>7 || (Math.max(set.me,set.rival)===7&&Math.min(set.me,set.rival)<5))) throw Error('Marcador de games inválido.');
+  if(index===2 && format==='tie') set.tieOnly=true;
+  if(!set.super && !set.tieOnly && (Math.max(set.me,set.rival)>7 || (Math.max(set.me,set.rival)===7&&Math.min(set.me,set.rival)<5))) throw Error('Marcador de games inválido.');
   if(parts[3]!==undefined) {
    if(set.super || Math.min(set.me,set.rival)!==6 || ![6,7].includes(Math.max(set.me,set.rival))) throw Error('Detalle de tie-break incompatible.');
    set.points={me:Number(parts[3]),rival:Number(parts[4])};

@@ -42,3 +42,4 @@ Historial: el partido más antiguo recibe el número 1. Al agregar, editar o eli
 Estadística: acumula los partidos del historial. Incluye sets completos y games anotados. El súper tie-break cuenta como set y sus puntos se excluyen de los games. Se suma la duración registrada.
 Rivales: registra nombre y, opcionalmente, edad y datos técnicos. Selecciona el perfil en Partido. Las observaciones del encuentro tienen prioridad sobre el perfil.
 Duración editable en HH/MM/SS. Los promedios dividen el tiempo registrado por los partidos, sets completos o games de esos mismos registros.
+Al confirmar el segundo set con empate 1–1, selecciona Set normal, Tie-break (7) o Súper tie-break (10). En Editar historial puedes cambiar el formato y corregir el marcador del tercero. Ambos desempates requieren dos puntos de diferencia.

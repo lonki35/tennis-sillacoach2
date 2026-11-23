@@ -14,8 +14,8 @@
 <label>Rival registrado<select class="edit-field" id="rivalSelect" name="rivalId" required></select></label></fieldset>
 
 <label>Tipo de partido<select name="kind"><option>Amistoso</option><option>Liga</option><option selected>Ranking</option></select></label>
-<label>Formato del tercer set<select name="format"><option value="normal">Set normal</option><option value="super">Súper tie-break a 10 puntos</option></select></label><fieldset><legend>Objetivos del día · hasta cuatro</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label><label><input type="checkbox" name="goal" value="Probar más slices"> Probar más slices</label><label><input type="checkbox" name="goal" value="Jugar a devolver más"> Jugar a devolver más</label><label><input type="checkbox" name="goal" value="Probar passing shots"> Probar passing shots</label><label><input type="checkbox" name="goal" value="Probar más globos"> Probar más globos</label><label><input type="checkbox" name="goal" value="Probar los paralelos"> Probar los paralelos</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><button id="addPast" class="primary">Agregar partido anterior</button><label>Buscar por rival<select id="historyRival" class="edit-field"></select></label><p id="h2h" role="status"></p><div id="history"></div></section>
-<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><button id="confirmSet" class="primary" hidden>GUARDAR RESULTADO DEL SET</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
+<fieldset><legend>Objetivos del día · hasta cuatro</legend><label><input type="checkbox" name="goal" value="Asegurar el primer saque"> Asegurar el primer saque</label><label><input type="checkbox" name="goal" value="Jugar con margen"> Jugar con margen</label><label><input type="checkbox" name="goal" value="Elegir mejor cuándo subir a la red"> Elegir mejor cuándo subir a la red</label><label><input type="checkbox" name="goal" value="Probar más slices"> Probar más slices</label><label><input type="checkbox" name="goal" value="Jugar a devolver más"> Jugar a devolver más</label><label><input type="checkbox" name="goal" value="Probar passing shots"> Probar passing shots</label><label><input type="checkbox" name="goal" value="Probar más globos"> Probar más globos</label><label><input type="checkbox" name="goal" value="Probar los paralelos"> Probar los paralelos</label></fieldset><button class="primary">INICIAR PARTIDO</button></form></section><section id="historyScreen" hidden><h2>Historial</h2><button id="addPast" class="primary">Agregar partido anterior</button><label>Buscar por rival<select id="historyRival" class="edit-field"></select></label><p id="h2h" role="status"></p><div id="history"></div></section>
+<section id="marker" hidden><p id="matchName" class="profile"></p><details><summary>Perfil del rival</summary><p id="rivalProfile"></p></details><button class="wide" id="rest">INICIAR DESCANSO</button><label><input type="checkbox" id="restSound" checked> Sonido del descanso</label><button type="button" id="testRestSound">Probar pitido</button><p id="restStatus" role="status"></p><p class="card sets" id="closedSets"></p><h2 id="setLabel"></h2><div class="grid" id="scores"></div><details id="pointTracking"><summary>Registrar puntos para la racha</summary><p>Opcional. Estos toques no cambian el marcador de games.</p><div class="row"><button id="pointMe">Gané punto</button><button id="pointRival">Perdí punto</button></div><button id="pointUndo" class="wide">Deshacer punto</button><p id="pointRun"></p></details><button class="wide" id="undo">DESHACER ÚLTIMO CAMBIO</button><fieldset id="thirdChoice" hidden><legend>¿Cómo jugarán el tercer set?</legend><button type="button" data-third="normal">Set normal</button><button type="button" data-third="tie">Tie-break (7)</button><button type="button" data-third="super">Súper tie-break (10)</button></fieldset><button id="confirmSet" class="primary" hidden>GUARDAR RESULTADO DEL SET</button><button class="primary" id="next">SIGUIENTE: SENSACIONES</button><button class="wide" id="finish">FINALIZAR PARTIDO</button></section>
 <section id="breath" hidden><h2>PAUSA Y RESPIRA</h2><div class="orb" aria-hidden="true"></div><p id="cue"></p><p id="breathSeconds"></p><button class="primary" id="skip">SALTAR</button></section>
 <section id="feel" hidden><h2>¿Cómo vas?</h2><form id="feelForm"><div id="feelingControls"></div><button id="omitFeelings" class="wide" type="button" hidden>Omitir pendientes</button><p id="feelAlert" class="card" role="status"></p><details id="rivalReading"><summary>Cómo juega el rival</summary><label>Rival sirviendo<select name="rivalServing"><option value="">Sin observar</option><option value="strong">Primer saque dominante</option><option value="second">Segundo saque atacable</option><option value="irregular">Saque irregular</option></select></label><label>Rival recibiendo<select name="rivalReturning"><option value="">Sin observar</option><option value="deep">Devolución profunda</option><option value="short">Devolución corta</option><option value="direction">Le cuesta una dirección concreta</option></select></label><label>Patrón de juego en cancha<select name="rivalPattern"><option value="">Sin observar</option><option value="baseline">Juega de fondo</option><option value="net">Sube frecuentemente a la red</option><option value="short">Sube tras una pelota corta</option><option value="mixed">Alterna fondo y red</option></select></label></details><details id="optional"><summary>Agregar una observación</summary><div class="grid"><label>Jugador<select name="who"><option>Yo</option><option>Rival</option></select></label><label>Golpe<select name="shot"><option>Saque</option><option>Golpes ganadores</option><option>Red</option><option>Revés</option><option>Paralelo</option></select></label></div><label>Cómo está funcionando<select name="quality"><option value="">Sin observar</option><option>Consistente</option><option>Inconsistente</option><option>Ganando puntos</option><option>Fallando</option></select></label><label id="sideLabel" hidden>Lado de origen mirando la red<select name="side"><option value="">Sin indicar</option><option>Izquierda</option><option>Derecha</option></select></label></details><button class="primary">VER RECOMENDACIÓN DE JUEGO</button></form><button class="wide" data-marker>VOLVER AL MARCADOR</button></section>
 <section id="advice" hidden><h2>Recomendación de Juego</h2><h2 id="adviceHorizon">Próximos dos games</h2><p id="momentum" role="status"></p><p id="adviceBasis" class="muted"></p><div class="card"><h3>Sirviendo</h3><div id="mainTip"></div><h3>Recibiendo</h3><div id="otherTip"></div></div><button class="primary" data-marker>VOLVER AL MARCADOR</button></section>
@@ -76,8 +76,10 @@ function tick(now = Date.now()) {
 function renderScore() {
   const match = active();
   const current = score();
-  const points = current.super || !!current.points;
+  const points = current.super || current.tieOnly || !!current.points;
   const completed = match.end!==null;
+  const needsThird=match.set===2&&!match.format;
+  get("thirdChoice").hidden=!needsThird;
   get("confirmSet").hidden=!match.pendingSet;
   get('rivalProfile').textContent = rivalProfile(match);
   get('pointTracking').hidden=points||completed;
@@ -86,7 +88,7 @@ function renderScore() {
   const finished = match.sets.map((set,index)=>SillaScore.winner(set)&&!(match.pendingSet&&index===match.set)?'Set '+(index+1)+' · '+SillaScore.label(set):'').filter(Boolean);
   get('matchName').textContent = 'Partido N.º '+match.number+' · '+(match.rivalName||'Rival sin informar');
   get('closedSets').textContent = 'Sets jugados · '+(finished.join(' / ')||'Ninguno terminado');
-  get('setLabel').textContent = completed ? 'Partido terminado' : 'Set '+(match.set+1)+(current.super?' · Súper tie-break':points?' · Tie-break':' · Games');
+  get('setLabel').textContent = completed ? 'Partido terminado' : 'Set '+(match.set+1)+(current.super?' · Súper tie-break':current.tieOnly?' · Tie-break (7)':points?' · Tie-break':' · Games');
   get('undo').disabled = !match.undo;
   get('rest').hidden = completed;
   get('next').hidden = completed;
@@ -96,7 +98,7 @@ function renderScore() {
   for (const field of ['me','rival']) {
     get(field).textContent = (current.points??current)[field];
     const button = get(field+'Up');
-    button.disabled = completed || !!match.pendingSet || !!match.legacyManual;
+    button.disabled = needsThird || completed || !!match.pendingSet || !!match.legacyManual;
     button.textContent = points?'+ Punto':'+ Game';
     button.setAttribute('aria-label','Sumar '+(points?'punto':'game')+' a '+(field==='me'?'YO':'RIVAL'));
   }
@@ -105,7 +107,7 @@ get('scores').innerHTML = [['me','YO'],['rival','RIVAL']].map(([field,label]) =>
   '<div class="card score">'+label+'<strong id="'+field+'"></strong><button id="'+field+'Up">+</button></div>').join('');
 for (const field of ['me','rival']) get(field+'Up').onclick = () => {
   const match=active();
-  const unit=score().points||score().super?'punto':'game';
+  const unit=score().points||score().super||score().tieOnly?'punto':'game';
   const pointTracking=match.pointTracking;
   const index=match.set;
   if(match.setBreakFor===index)delete match.setBreakFor;
@@ -128,6 +130,13 @@ get('confirmSet').onclick=()=>{
  if(!save())Object.assign(match,snapshot);
  renderScore();tick();
 };
+for(const button of document.querySelectorAll('[data-third]'))button.onclick=()=>{
+ const match=active(),before={format:match.format,sets:match.sets};
+ match.format=button.dataset.third;
+ match.sets=match.sets.map((set,i)=>i===2?{me:0,rival:0,super:match.format==='super',tieOnly:match.format==='tie'}:set);
+ if(!save())Object.assign(match,before);
+ renderScore();
+};
 get('undo').onclick = () => {
   SillaScore.undo(active());
   save(); renderScore(); tick();
@@ -146,7 +155,7 @@ get('setupForm').onsubmit = event => {
   if (!rivalName) { get('notice').textContent='Selecciona un rival guardado en Rivales.'; picker.focus(); return; }
   get('notice').textContent='';
   data.active = {
-    number:data.next++,rivalName,rival:rival?{...rival}:null,category:rival.category||'Sin informar',kind:form.get('kind'),format:form.get('format'),undo:null,
+    number:data.next++,rivalName,rival:rival?{...rival}:null,category:rival.category||'Sin informar',kind:form.get('kind'),format:null,undo:null,
     start:Date.now(), end:null, age:data.player?.age??null, player:data.player??null, confirmSets:true, rivalAge:rival.age??null,
     hand:rival.hand||'Desconocida', goals:form.getAll('goal').slice(0,4), set:0, restEnd:null, offered:false,
     sets:[{me:0,rival:0}], observations:[]
@@ -397,7 +406,7 @@ function report(match) {
     summary(match),
     rivalProfile(match),
     'Duración '+(match.durationUnknown?'sin registrar':clock(elapsed(match),true)),
-    'Formato del tercero · '+(match.format==='super'?'Súper tie-break a 10 puntos':match.format==='normal'?'Set normal':'Sin informar')
+    'Formato del tercero · '+(match.format==='super'?'Súper tie-break a 10 puntos':match.format==='tie'?'Tie-break a 7 puntos':match.format==='normal'?'Set normal':'Sin informar')
   ]);
   const context = [];
   if (match.age) context.push('Mi edad · '+match.age+' años.');
@@ -562,7 +571,8 @@ function openEdit(match) {
  const local=new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,10);
  const original=formatSets(match)==='Sin marcador'?'':formatSets(match);
  const fields=[['date','Fecha','date',local],['rivalName','Rival','text',match.rivalName],['kind','Tipo de partido',['Sin informar','Amistoso','Liga','Ranking'],match.kind],['score','Marcador Yo/Rival','text',original]];
- if(adding)fields.push(['format','Tercer set',['Normal','Súper tie-break'],'Normal'],['incomplete','Estado',['Terminado','Inconcluso'],'Terminado']);
+ fields.push(['format','Tercer set',['Normal','Tie-break (7)','Súper tie-break'],match.format==='super'||match.sets[2]?.super?'Súper tie-break':match.format==='tie'||match.sets[2]?.tieOnly?'Tie-break (7)':'Normal']);
+ if(adding)fields.push(['incomplete','Estado',['Terminado','Inconcluso'],'Terminado']);
  fields.splice(1,0,['rivalId','Rival registrado',[['','Ingresar nombre manualmente'],...[...(data.rivals??[])].sort((a,b)=>a.name.localeCompare(b.name,'es')).map(rival=>[rival.id,rival.name])],(data.rivals??[]).find(rival=>rival.id===match.rival?.id&&rivalHistoryKey({rivalName:rival.name})===rivalHistoryKey(match))?.id??'']);
  fields.push(['duration','Duración (HH/MM/SS)','text',adding||match.durationUnknown||!Number.isFinite(match.end)?'':clock(elapsed(match),true).replaceAll(':','/')]);
  fields.push(['finalNote','Apreciación personal (opcional)','textarea',match.finalNote]);
@@ -591,10 +601,11 @@ function openEdit(match) {
    const rivalName=form.rivalName.trim();
    if(!Number.isFinite(start)||(!rivalName&&(adding||match.rivalName)))throw Error('Revisa la fecha, el rival y el puntaje.');
    let sets=match.sets,result=match.result;
-   if(adding||form.score.trim()!==original) {
-    const format=form.format==='Súper tie-break'||match.format==='super'||match.sets[2]?.super?'super':'normal';
+   const newFormat=form.format==='Súper tie-break'?'super':form.format==='Tie-break (7)'?'tie':'normal';
+   if(adding||form.score.trim()!==original||newFormat!==(match.format??'normal')) {
+    const format=newFormat;
     const tokens=form.score.trim().split(/\s+-\s+/).map((token,i)=>{
-     if(i===2&&format==='super')return token.replace(/^(\d+)\s*-\s*(\d+)$/,'$1/$2');
+     if(i===2&&format!=='normal')return token.replace(/^(\d+)\s*-\s*(\d+)$/,'$1/$2');
      const previous=match.sets[i];
      return previous?.points && token.trim()===previous.me+'/'+previous.rival ? token+' ('+previous.points.me+'/'+previous.points.rival+')':token;
     });
@@ -605,8 +616,8 @@ function openEdit(match) {
    const duration=parseDuration(form.duration);
    if(!Number.isSafeInteger(start+(duration??0)))throw Error('Revisa la duración.');
    const selectedRival=(data.rivals??[]).find(item=>item.id===form.rivalId);
-   const updated={...match,rival:selectedRival?{...selectedRival}:rivalName===match.rivalName?match.rival:null,start,end:start+(duration??0),durationUnknown:duration===null,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
-     ...(adding?{manual:true,format:form.format==='Súper tie-break'?'super':'normal'}:{})};
+   const updated={...match,format:newFormat,rival:selectedRival?{...selectedRival}:rivalName===match.rivalName?match.rival:null,start,end:start+(duration??0),durationUnknown:duration===null,rivalName,kind:form.kind,sets,result,finalNote:form.finalNote.trim(),
+     ...(adding?{manual:true}:{})};
    updated.earned=competitionPoints(updated);
    updated.finalSummary=matchReview(updated);
    if(adding){
@@ -693,7 +704,7 @@ function statistics(history) {
   for(const set of match.sets??[]){
    const winner=SillaScore.winner(set);
    if(winner){if(hasDuration)timed[1]++;sets[0]++;sets[winner==='me'?1:2]++;}
-   if(!set.super){if(hasDuration)timed[2]+=set.me+set.rival;games[1]+=set.me;games[2]+=set.rival;}
+   if(!set.super&&!set.tieOnly){if(hasDuration)timed[2]+=set.me+set.rival;games[1]+=set.me;games[2]+=set.rival;}
   }
  }
  games[0]=games[1]+games[2];

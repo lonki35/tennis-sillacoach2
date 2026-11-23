@@ -2,7 +2,7 @@
 const SillaScore = (() => {
   const empty = () => ({me:0,rival:0});
   function winner(set) {
-    if (set.super) return pointWinner(set,10);
+    if (set.super || set.tieOnly) return pointWinner(set,set.tieOnly?7:10);
     if (set.points) return pointWinner(set.points,7);
     const high = Math.max(set.me,set.rival);
     const low = Math.min(set.me,set.rival);
@@ -22,15 +22,16 @@ const SillaScore = (() => {
       return;
     }
     do { match.set++; } while (match.sets[match.set] && winner(match.sets[match.set]));
-    if (!match.sets[match.set]) match.sets.push({...empty(),super:match.set===2 && match.format==='super'});
+    if (!match.sets[match.set]) match.sets.push({...empty(),super:match.set===2 && match.format==='super',tieOnly:match.set===2 && match.format==='tie'});
   }
   function add(match, side, now) {
+    if (match.set===2 && !match.format) return;
     if (match.end!==null || match.pendingSet || !['me','rival'].includes(side)) return;
     match.undo = {set:match.set,sets:JSON.parse(JSON.stringify(match.sets)),end:match.end,pendingSet:match.pendingSet??null,progressLength:match.progress?.length??0};
     const set = match.sets[match.set];
     const tally = set.points ?? set;
     tally[side]++;
-    if (!set.super && !set.points && set.me===6 && set.rival===6) set.points = empty();
+    if (!set.super && !set.tieOnly && !set.points && set.me===6 && set.rival===6) set.points = empty();
     const won = winner(set);
     if (won) {
       if (set.points) set[won] = 7;
@@ -46,6 +47,7 @@ const SillaScore = (() => {
   }
   function label(set) {
     const score = set.me+'–'+set.rival;
+    if (set.tieOnly) return 'Tie-break (7) '+score;
     if (set.super) return 'Súper tie-break '+score;
     return set.points ? score+' (tie-break '+set.points.me+'–'+set.points.rival+')' : score;
   }
